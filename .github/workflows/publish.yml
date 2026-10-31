@@ -6,7 +6,7 @@
 # - Publishing is manual: Actions > "Build and publish" > "Run workflow" on
 #   the `main` branch, after the changes have been reviewed and approved.
 #   It needs GitHub Pages enabled in the repository settings with
-#   "Source: GitHub Actions" (see README.md, "Publish").
+#   "Source: GitHub Actions" (see README.md, "Pubblicazione su GitHub Pages").
 
 name: Build and publish
 

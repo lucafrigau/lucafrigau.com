@@ -600,26 +600,30 @@ e non va inviata a GitHub (non usare `git push --all`).
 - Il sito non usa il repository `lucafrigau.github.io`: con un dominio su quel
   repository, anche gli altri siti GitHub Pages dell'account passerebbero
   sotto `lucafrigau.com`.
-- **HTTPS**: i certificati li emette GitHub; *Enforce HTTPS* è attivo in
-  *Settings → Pages* dei due repository.
+- **HTTPS**: i certificati li emette e li rinnova GitHub; *Enforce HTTPS* è
+  attivo in *Settings → Pages* dei due repository. GitHub chiede il
+  certificato quando si salva il dominio: se il DNS cambia dopo, bisogna
+  togliere e rimettere il dominio in *Settings → Pages* (nel repository
+  `lucafrigau.it` questo aggiunge due commit sul file `CNAME`).
 - **DNS**: i due domini sono registrati presso OVH, che ne gestisce il DNS
   (*Domini → nome del dominio → Zona DNS*). Per entrambi la zona contiene:
 
   | Sottodominio | Tipo | Destinazione |
   |---|---|---|
-  | (vuoto) | A | `185.199.108.153` |
-  | (vuoto) | A | `185.199.109.153` |
-  | (vuoto) | A | `185.199.110.153` |
-  | (vuoto) | A | `185.199.111.153` |
-  | (vuoto) | AAAA | `2606:50c0:8000::153` |
-  | (vuoto) | AAAA | `2606:50c0:8001::153` |
-  | (vuoto) | AAAA | `2606:50c0:8002::153` |
-  | (vuoto) | AAAA | `2606:50c0:8003::153` |
+  | `@` | A | `185.199.108.153` |
+  | `@` | A | `185.199.109.153` |
+  | `@` | A | `185.199.110.153` |
+  | `@` | A | `185.199.111.153` |
+  | `@` | AAAA | `2606:50c0:8000::153` |
+  | `@` | AAAA | `2606:50c0:8001::153` |
+  | `@` | AAAA | `2606:50c0:8002::153` |
+  | `@` | AAAA | `2606:50c0:8003::153` |
   | `www` | CNAME | `lucafrigau.github.io.` |
 
-  Gli indirizzi sono quelli della guida di GitHub "Managing a custom domain
-  for your GitHub Pages site". I record della posta (MX e il TXT
-  `v=spf1 …`) non riguardano il sito e restano come sono.
+  Nel modulo di OVH il campo *Sottodominio* è obbligatorio: `@` indica il
+  dominio stesso. Gli indirizzi sono quelli della guida di GitHub "Managing
+  a custom domain for your GitHub Pages site". I record della posta (MX e il
+  TXT `v=spf1 …`) non riguardano il sito e restano come sono.
 - **Verifica dei domini** (consigliata): nelle impostazioni dell'account
   GitHub, *Settings → Pages → Add a domain*, con un record TXT nella zona DNS.
   Così nessun altro account GitHub può usare i domini.
