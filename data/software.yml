@@ -1,0 +1,77 @@
+# Software, repositories and interactive applications.
+#
+# Shown on the "Software & Apps" page, grouped by kind; entries marked
+# `featured: true` also appear on the Home page. The order of the entries in
+# this file is the order on the page.
+#
+# Fields of each entry:
+#   id        short unique identifier (lowercase letters, digits, hyphens)
+#   title     name shown on the card
+#   kind      shiny-app | r-package | research-code | dataset | tool
+#   status    active (default) | archived | draft (draft = not published)
+#   featured  true to show the card on the Home page
+#   year      year of the first public release (optional)
+#   summary   one or two sentences (Markdown allowed)
+#   tech      technologies shown as tags, e.g. [R, Shiny] (optional)
+#   links     any of: app, download, docs, repo, cran, data, paper (full URLs)
+#   note      short note under the links, e.g. the license (optional)
+#
+# Template for a Shiny application (copy below `software:`, then edit):
+#
+#  - id: my-app
+#    title: My App
+#    kind: shiny-app
+#    featured: true
+#    year: 2027
+#    summary: >
+#      What the app does, for whom, and which data or method it uses.
+#    tech: [R, Shiny]
+#    links:
+#      app: https://apps.example.org/my-app/
+#      repo: https://github.com/lucafrigau/my-app
+#      paper: https://doi.org/10.xxxx/xxxxx
+
+software:
+  - id: analisimercato
+    title: AnalisiMercato
+    kind: tool
+    year: 2026
+    summary: >
+      A [jamovi](https://www.jamovi.org) module for my Market Analysis course
+      at the University of Cagliari: sample size and probability sampling
+      designs, hierarchical cluster analysis and principal component analysis,
+      with an Italian interface and four teaching data sets.
+    tech: [jamovi, R, Teaching]
+    links:
+      download: https://github.com/lucafrigau/AnalisiMercato/releases/latest
+      repo: https://github.com/lucafrigau/AnalisiMercato
+    note: GPL-3.0 license. Installation files for macOS, Windows and Linux are on GitHub.
+
+  - id: parseg
+    title: PARSEG
+    kind: research-code
+    featured: true
+    year: 2025
+    summary: >
+      R implementation of PARSEG (PArtitioning, Random Selection, Estimation
+      and Generalization), a data-efficient framework for pixel-level image
+      segmentation that selects the smallest number of labeled pixels needed
+      for stable and reliable results. Includes a reproducible example.
+    tech: [R, Image segmentation, Classification]
+    links:
+      repo: https://github.com/lucafrigau/parseg
+      paper: https://doi.org/10.1038/s41598-024-56228-6
+    note: MIT license.
+
+  - id: health-care-fraud
+    title: Health care fraud classifiers in practice
+    kind: dataset
+    featured: true
+    year: 2021
+    summary: >
+      Repository accompanying the article *Health care fraud classifiers in
+      practice* (Applied Stochastic Models in Business and Industry, 2021). It
+      provides the labeled payment data set used in the article.
+    links:
+      repo: https://github.com/lucafrigau/health_care_fraud_classifiers_in_practice
+      paper: https://doi.org/10.1002/asmb.2633

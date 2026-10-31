@@ -1,0 +1,1235 @@
+% Publications of Luca Frigau
+%
+% Single source for the Publications page and for the publication lists on
+% the Home and Research pages. Entries are grouped by type and shown in
+% reverse chronological order; the order of entries within the same year is
+% the order used in this file.
+%
+% Conventions (see README.md, "Add a publication"):
+%   - entry types: article (journal article), incollection (book
+%     chapter), inproceedings (conference proceedings or abstracts);
+%   - titles are shown exactly as written here (no automatic case change);
+%   - keywords: "selected" marks a selected publication; the id of a
+%     research area (data/research.yml) assigns the entry to that area in
+%     the publication charts, e.g. keywords = {selected, clustering}. Every
+%     entry has exactly one area: clustering, trees, text-mining, heaping,
+%     image-analysis, or other-topics for works outside these lines;
+%   - annote = {...} is a one-sentence summary shown under the entry;
+%   - code = {URL} and data = {URL} add links to code and data;
+%   - openalex = {W...} confirms by hand the OpenAlex record of an entry
+%     without DOI, for the citation map (scripts/citation_map.py);
+%   - langid = {italian} for Italian-language titles.
+%   Write one field per line: the "Cite" box omits keywords, annote, code,
+%   data and openalex, which only matter to this site.
+%
+% Source: CV of Luca Frigau (26 October 2026), cross-checked against the
+% publishers' metadata (Crossref) on 27 October 2026.
+
+
+% ======================================================================
+% Journal articles
+% ======================================================================
+
+@article{yee2025heaping,
+  author    = {Yee, T. and Frigau, L. and Ma, C.},
+  title     = {Heaping and seeping, GAITD regression and doubly constrained reduced-rank vector generalized linear models, in smoking studies},
+  journal   = {The Annals of Applied Statistics},
+  year      = {2025},
+  volume    = {19},
+  number    = {4},
+  pages     = {3045--3070},
+  doi       = {10.1214/25-AOAS2065},
+  issn      = {1932-6157},
+  keywords  = {selected, heaping},
+  annote    = {Applies GAITD regression and doubly constrained reduced-rank VGLMs to self-reported counts that pile up on round numbers, to study the age at which people start smoking in a large US health survey.}
+}
+
+@article{mahmoudvand2025probability,
+  author    = {Mahmoudvand, R. and Fiori Maccioni, A. and Frigau, L. and Banks, D.},
+  title     = {Probability Distribution of Risk Priority Numbers in Failure Mode and Effects Analysis},
+  journal   = {Risk Analysis},
+  year      = {2025},
+  volume    = {45},
+  number    = {12},
+  pages     = {4783--4795},
+  doi       = {10.1111/risa.70143},
+  issn      = {1539-6924},
+  keywords  = {other-topics}
+}
+
+@article{carta2025tree,
+  author    = {Carta, A. and Frigau, L.},
+  title     = {Tree Oblique for Regression with Weighted Support Vector Machine},
+  journal   = {Computational Statistics},
+  year      = {2025},
+  volume    = {40},
+  number    = {9},
+  pages     = {5257--5291},
+  doi       = {10.1007/s00180-025-01647-w},
+  issn      = {1613-9658},
+  keywords  = {selected, trees},
+  annote    = {Regression trees whose splits are oblique hyperplanes found by a weighted support vector machine. In the experiments of the paper, TORS most often had the lowest prediction error among six tree models.}
+}
+
+@article{monticone2025model,
+  author    = {Monticone, M. and Arippa, F. and Frigau, L. and Foti, C. and Ferrari, S. and Guicciardi, M. and Rocca, B.},
+  title     = {Model of Fear of Movement/(re)injury Runs Clockwise from Catastrophizing: Evidence from a Sample of Outpatients with Chronic Nonspecific Low Back Pain},
+  journal   = {American Journal of Physical Medicine \& Rehabilitation},
+  year      = {2025},
+  volume    = {104},
+  number    = {6},
+  pages     = {506--510},
+  doi       = {10.1097/PHM.0000000000002659},
+  issn      = {1537-7385},
+  keywords  = {other-topics}
+}
+
+@article{frigau2024gauging,
+  author    = {Frigau, L. and Contu, G. and Ortu, M. and Carta, A.},
+  title     = {Gauging Airbnb Review Sentiments and Critical Key-Topics by Small Area Estimation},
+  journal   = {Statistical Methods and Applications},
+  year      = {2024},
+  volume    = {33},
+  number    = {4},
+  pages     = {1145--1170},
+  doi       = {10.1007/s10260-024-00764-y},
+  issn      = {1613-981X},
+  keywords  = {text-mining},
+  annote    = {Small area estimation of negative sentiment and critical topics in Airbnb reviews, for areas of the city of Rome.}
+}
+
+@article{frigau2024parseg,
+  author    = {Frigau, L. and Conversano, C. and Antoch, J.},
+  title     = {PARSEG: A computationally efficient approach for statistical validation of botanical seeds’ images},
+  journal   = {Scientific Reports},
+  year      = {2024},
+  volume    = {14},
+  number    = {1},
+  pages     = {6052},
+  doi       = {10.1038/s41598-024-56228-6},
+  issn      = {2045-2322},
+  keywords  = {selected, image-analysis},
+  annote    = {Validating a binary image segmentation from a small, optimally chosen sample of pixels, which cuts the computational cost of validation.},
+  code      = {https://github.com/lucafrigau/parseg}
+}
+
+@article{conversano2024overlapping,
+  author    = {Conversano, C. and Frigau, L. and Contu, G.},
+  title     = {Overlapping coefficient in Network-based Semi-Supervised Clustering},
+  journal   = {Computational Statistics},
+  year      = {2024},
+  volume    = {39},
+  number    = {7},
+  pages     = {3831--3854},
+  doi       = {10.1007/s00180-024-01457-6},
+  issn      = {1613-9658},
+  keywords  = {clustering},
+  annote    = {For numeric outcomes, the final partition is chosen by how little the distributions of the outcome overlap across clusters; tested on 20 real data sets.}
+}
+
+@article{ortu2024topic,
+  author    = {Ortu, M. and Frigau, L. and Contu, G.},
+  title     = {Topic Based Quality Indexes Assessment Through Sentiment},
+  journal   = {Computational Statistics},
+  year      = {2024},
+  volume    = {39},
+  number    = {1},
+  pages     = {289--311},
+  doi       = {10.1007/s00180-022-01284-7},
+  issn      = {1613-9658},
+  keywords  = {text-mining},
+  annote    = {TOBIAS relates the topics and sentiments of students' comments to the overall rating of university courses through partial least squares path modeling.}
+}
+
+@article{zammarchi2024scientometric,
+  author    = {Zammarchi, G. and Carta, A. and Columbu, S. and Frigau, L. and Musio, M.},
+  title     = {A scientometric analysis of the effect of COVID-19 on the spread of research outputs},
+  journal   = {Quality \& Quantity},
+  year      = {2024},
+  volume    = {58},
+  number    = {3},
+  pages     = {2265--2287},
+  doi       = {10.1007/s11135-023-01742-4},
+  issn      = {1573-7845},
+  keywords  = {other-topics}
+}
+
+@article{coppola2023near,
+  author    = {Coppola, F. and Frigau, L. and Markelj, J. and Malešič, J. and Conversano, C. and Strlič, M.},
+  title     = {Near-Infrared Spectroscopy and Machine Learning for Accurate Dating of Historical Books},
+  journal   = {Journal of the American Chemical Society},
+  year      = {2023},
+  volume    = {145},
+  number    = {22},
+  pages     = {12305--12314},
+  doi       = {10.1021/jacs.3c02835},
+  issn      = {1520-5126},
+  keywords  = {trees}
+}
+
+@article{frigau2023semi,
+  author    = {Frigau, L. and Romano, M. and Ortu, M. and Contu, G.},
+  title     = {Semi-Supervised Sentiment Clustering on Natural Language Texts},
+  journal   = {Statistical Methods and Applications},
+  year      = {2023},
+  volume    = {32},
+  number    = {4},
+  pages     = {1239--1257},
+  doi       = {10.1007/s10260-023-00691-4},
+  issn      = {1613-981X},
+  keywords  = {selected, clustering},
+  annote    = {Groups texts, such as hotel reviews, into clusters that are homogeneous in their overall sentiment, combining sentiment analysis, a naive Bayes classifier and network-based clustering.}
+}
+
+@article{contu2023price,
+  author    = {Contu, G. and Frigau, L. and Conversano, C.},
+  title     = {Price indicators for Airbnb accommodations},
+  journal   = {Quality \& Quantity},
+  year      = {2023},
+  volume    = {57},
+  number    = {5},
+  pages     = {4779--4802},
+  doi       = {10.1007/s11135-022-01576-6},
+  issn      = {1573-7845},
+  keywords  = {other-topics}
+}
+
+@article{contu2023vglm,
+  author    = {Contu, G. and Frigau, L. and Ortu, M.},
+  title     = {VGLM proportional odds model to infer hosts' Airbnb performance},
+  journal   = {Quality \& Quantity},
+  year      = {2023},
+  volume    = {57},
+  number    = {5},
+  pages     = {4069--4094},
+  doi       = {10.1007/s11135-022-01550-2},
+  issn      = {1573-7845},
+  keywords  = {other-topics},
+  annote    = {A VGLM proportional odds model of the occupancy rate and overall rating of Airbnb hosts in Rome, Milan, Venice and Florence.}
+}
+
+@article{frau2023how,
+  author    = {Frau, M. and Cabiddu, F. and Frigau, L. and Tomczyk, P. and Mola, F.},
+  title     = {How emotions impact the interactive value formation process during problematic social media interactions},
+  journal   = {Journal of Research in Interactive Marketing},
+  year      = {2023},
+  volume    = {17},
+  number    = {5},
+  pages     = {773--793},
+  doi       = {10.1108/JRIM-06-2022-0186},
+  issn      = {2040-7122},
+  keywords  = {text-mining}
+}
+
+@article{cadoni2022periapical,
+  author    = {Cadoni, E. and Ideo, F. and Marongiu, G. and Mezzena, S. and Frigau, L. and Mela, Q. and Capone, A. and Duncan, H. F. and Cotti, E.},
+  title     = {Periapical Status in Patients affected by Osteoporosis: a Retrospective Clinical Study},
+  journal   = {Clinical and Experimental Dental Research},
+  year      = {2022},
+  volume    = {8},
+  number    = {5},
+  pages     = {1068--1075},
+  doi       = {10.1002/cre2.604},
+  issn      = {2057-4347},
+  keywords  = {other-topics}
+}
+
+@article{frigau2022optimizing,
+  author    = {Frigau, L. and Wu, Q. and Banks, D.},
+  title     = {Optimizing the JSM Program},
+  journal   = {Journal of the American Statistical Association},
+  year      = {2022},
+  volume    = {117},
+  number    = {538},
+  pages     = {617--626},
+  doi       = {10.1080/01621459.2021.1978466},
+  issn      = {0162-1459},
+  keywords  = {selected, text-mining},
+  annote    = {Seeded topic models and a scheduling algorithm reduce the overlap of topics between parallel sessions of the Joint Statistical Meetings.}
+}
+
+@article{ekin2021health,
+  author    = {Ekin, T. and Frigau, L. and Conversano, C.},
+  title     = {Health Care Fraud Classifiers in Practice},
+  journal   = {Applied Stochastic Models in Business and Industry},
+  year      = {2021},
+  volume    = {37},
+  number    = {6},
+  pages     = {1182--1199},
+  doi       = {10.1002/asmb.2633},
+  issn      = {1526-4025},
+  keywords  = {trees},
+  data      = {https://github.com/lucafrigau/health_care_fraud_classifiers_in_practice}
+}
+
+@article{frigau2021consistent,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Consistent validation of gray-level thresholding image segmentation algorithms based on machine learning classifiers},
+  journal   = {Statistical Papers},
+  year      = {2021},
+  volume    = {62},
+  number    = {3},
+  pages     = {1363--1386},
+  doi       = {10.1007/s00362-019-01138-3},
+  issn      = {1613-9798},
+  keywords  = {image-analysis}
+}
+
+@article{zammarchi2021markov,
+  author    = {Zammarchi, G. and Frigau, L. and Mola, F.},
+  title     = {Markov chain to analyze web usability of a university website using eye tracking data},
+  journal   = {Statistical Analysis and Data Mining: The ASA Data Science Journal},
+  year      = {2021},
+  volume    = {14},
+  number    = {4},
+  pages     = {331--341},
+  doi       = {10.1002/sam.11512},
+  issn      = {1932-1872},
+  keywords  = {other-topics}
+}
+
+@article{frigau2021network,
+  author    = {Frigau, L. and Contu, G. and Mola, F. and Conversano, C.},
+  title     = {Network-based Semi Supervised Clustering},
+  journal   = {Applied Stochastic Models in Business and Industry},
+  year      = {2021},
+  volume    = {37},
+  number    = {2},
+  pages     = {182--202},
+  doi       = {10.1002/asmb.2618},
+  issn      = {1526-4025},
+  keywords  = {selected, clustering},
+  annote    = {Introduces network-based semi-supervised clustering (NeSSC): trees guided by an outcome estimate pairwise affinities, and community detection on the resulting network finds the clusters.}
+}
+
+@article{fadda2021investigating,
+  author    = {Fadda, P. and Fancello, G. and Frigau, L. and Mandas, M. and Medda, A. and Mola, F. and Pelligra, V. and Porta, M. and Serra, P.},
+  title     = {Investigating the Role of the Human Element in Maritime Accidents using Semi-Supervised Hierarchical Methods},
+  journal   = {Transportation Research Procedia},
+  year      = {2021},
+  volume    = {52},
+  pages     = {252--259},
+  doi       = {10.1016/j.trpro.2021.01.029},
+  issn      = {2352-1465},
+  keywords  = {clustering}
+}
+
+@article{contu2020identifying,
+  author    = {Contu, G. and Conversano, C. and Frigau, L. and Mola, F.},
+  title     = {Identifying factors affecting the status of superhost: evidence from Sardinia and Sicily},
+  journal   = {Quality \& Quantity},
+  year      = {2020},
+  volume    = {54},
+  number    = {5-6},
+  pages     = {1633--1653},
+  doi       = {10.1007/s11135-019-00925-2},
+  issn      = {1573-7845},
+  keywords  = {other-topics}
+}
+
+@article{contu2020university,
+  author    = {Contu, G. and Frigau, L. and Mola, F. and Romano, M. and Conversano, C.},
+  title     = {University student achievements and international mobility. The case of University of Cagliari},
+  journal   = {Electronic Journal of Applied Statistical Analysis},
+  year      = {2020},
+  volume    = {13},
+  number    = {2},
+  pages     = {474--497},
+  doi       = {10.1285/i20705948v13n2p474},
+  issn      = {2070-5948},
+  keywords  = {other-topics}
+}
+
+@article{monticone2020reliability,
+  author    = {Monticone, M. and Frigau, L. and Vernon, H. and Rocca, B. and Giordano, A. and Vullo, S. and Mola, F. and Franchignoni, F.},
+  title     = {Reliability, responsiveness and minimal clinically important difference of the two Fear Avoidance and Beliefs Questionnaire scales in Italian subjects with chronic low back pain undergoing multidisciplinary rehabilitation},
+  journal   = {European Journal of Physical and Rehabilitation Medicine},
+  year      = {2020},
+  volume    = {56},
+  number    = {5},
+  pages     = {600--606},
+  doi       = {10.23736/S1973-9087.20.06158-4},
+  issn      = {1973-9087},
+  keywords  = {other-topics}
+}
+
+@article{monticone2020italian,
+  author    = {Monticone, M. and Frigau, L. and Mola, F. and Rocca, B. and Franchignoni, F. and Vullo, S. S. and Foti, C. and Chiarotto, A.},
+  title     = {The Italian version of the Quebec Back Pain Disability Scale: cross-cultural adaptation, reliability and validity in patients with chronic low back pain},
+  journal   = {European Spine Journal},
+  year      = {2020},
+  volume    = {29},
+  number    = {3},
+  pages     = {530--539},
+  doi       = {10.1007/s00586-019-06153-4},
+  issn      = {1432-0932},
+  keywords  = {other-topics}
+}
+
+@article{marongiu2020reliability,
+  author    = {Marongiu, G. and Leinardi, L. and Congia, S. and Frigau, L. and Mola, F. and Capone, A.},
+  title     = {Reliability and reproducibility of the new AO/OTA 2018 classification system for proximal humeral fractures: a comparison of three different classification systems},
+  journal   = {Journal of Orthopaedics and Traumatology},
+  year      = {2020},
+  volume    = {21},
+  number    = {1},
+  pages     = {4},
+  doi       = {10.1186/s10195-020-0543-1},
+  issn      = {1590-9921},
+  keywords  = {other-topics}
+}
+
+@article{monticone2021italian,
+  author    = {Monticone, M. and Frigau, L. and Mola, F. and Rocca, B. and Giordano, A. and Foti, C. and Franchignoni, F.},
+  title     = {Italian versions of the Urogenital Distress Inventory-6 and Incontinence Impact Questionnaire-7: translation and validation in women with urinary incontinence},
+  journal   = {Disability and Rehabilitation},
+  year      = {2021},
+  volume    = {43},
+  number    = {20},
+  pages     = {2930--2936},
+  doi       = {10.1080/09638288.2020.1720319},
+  issn      = {0963-8288},
+  keywords  = {other-topics}
+}
+
+@article{frigau2020statistical,
+  author    = {Frigau, L. and Antoch, J. and Bacchetta, G. and Sarigu, M. and Ucchesu, M. and Zaratin Alves, C. and Mola, F.},
+  title     = {A statistical approach to the morphological classification of Prunus sp. seeds},
+  journal   = {Plant Biosystems},
+  year      = {2020},
+  volume    = {154},
+  number    = {6},
+  pages     = {877--886},
+  doi       = {10.1080/11263504.2019.1701126},
+  issn      = {1126-3504},
+  keywords  = {image-analysis}
+}
+
+@article{contu2019impact,
+  author    = {Contu, G. and Conversano, C. and Frigau, L. and Mola, F.},
+  title     = {The impact of Airbnb on hidden and sustainable tourism: the case of Italy},
+  journal   = {International Journal of Tourism Policy},
+  year      = {2019},
+  volume    = {9},
+  number    = {2},
+  pages     = {99--130},
+  doi       = {10.1504/IJTP.2019.102627},
+  issn      = {1750-4104},
+  keywords  = {other-topics}
+}
+
+@article{verona2019arthroscopically,
+  author    = {Verona, M. and Marongiu, G. and Cardoni, G. and Piras, N. and Frigau, L. and Capone, A.},
+  title     = {Arthroscopically assisted reduction and internal fixation (ARIF) versus open reduction and internal fixation (ORIF) for lateral tibial plateau fractures: a comparative retrospective study},
+  journal   = {Journal of Orthopaedic Surgery and Research},
+  year      = {2019},
+  volume    = {14},
+  number    = {1},
+  pages     = {155},
+  doi       = {10.1186/s13018-019-1186-x},
+  issn      = {1749-799X},
+  keywords  = {other-topics}
+}
+
+@article{ferrari2019sexual,
+  author    = {Ferrari, S. and Vanti, C. and Frigau, L. and Guccione, A. A. and Mola, F. and Ruggeri, M. and Pillastrini, P. and Monticone, M.},
+  title     = {Sexual disability in patients with chronic non-specific low back pain – a multicenter retrospective analysis},
+  journal   = {Journal of Physical Therapy Science},
+  year      = {2019},
+  volume    = {31},
+  number    = {4},
+  pages     = {360--365},
+  doi       = {10.1589/jpts.31.360},
+  issn      = {2187-5626},
+  keywords  = {other-topics}
+}
+
+@article{monticone2019italian,
+  author    = {Monticone, M. and Frigau, L. and Sconza, C. and Foti, C. and Mola, F. and Respizzi, S.},
+  title     = {Italian Version of the Risk Assessment and Prediction Tool: properties and usefulness of a decision-making tool for subjects' discharge after total hip and knee arthroplasty},
+  journal   = {International Journal of Statistics in Medical Research},
+  year      = {2019},
+  volume    = {8},
+  pages     = {8--16},
+  doi       = {10.6000/1929-6029.2019.08.02},
+  issn      = {1929-6029},
+  keywords  = {other-topics}
+}
+
+@article{contu2019information,
+  author    = {Contu, G. and Conversano, C. and Frigau, L. and Mola, F.},
+  title     = {Information content, interactivity and online popularity of the websites of World Heritage Sites: Evidence from France, Italy and Spain},
+  journal   = {Tourism Culture \& Communication},
+  year      = {2019},
+  volume    = {19},
+  number    = {2},
+  pages     = {111--133},
+  doi       = {10.3727/194341419X15542065061478},
+  issn      = {1098-304X},
+  keywords  = {other-topics}
+}
+
+@article{frigau2019field,
+  author    = {Frigau, L. and Medda, T. and Pelligra, V.},
+  title     = {From the Field to the Lab. An Experiment on the Representativeness of Standard Laboratory Subjects},
+  journal   = {Journal of Behavioral and Experimental Economics},
+  year      = {2019},
+  volume    = {78},
+  pages     = {160--169},
+  doi       = {10.1016/j.socec.2018.06.003},
+  issn      = {2214-8043},
+  keywords  = {other-topics}
+}
+
+@article{monticone2018development,
+  author    = {Monticone, M. and Capone, A. and Frigau, L. and Marongiu, G. and Abelli, P. and Mola, F. and Maffulli, N. and Foti, C.},
+  title     = {Development of the Italian version of the High-Activity Arthroplasty Score (HAAS-I) following hip and knee total arthroplasty: cross-cultural adaptation, reliability, validity and sensitivity to change},
+  journal   = {Journal of Orthopaedic Surgery and Research},
+  year      = {2018},
+  volume    = {13},
+  number    = {1},
+  pages     = {81},
+  doi       = {10.1186/s13018-018-0782-5},
+  issn      = {1749-799X},
+  keywords  = {other-topics}
+}
+
+@article{mayoral2018alien,
+  author    = {Mayoral, O. and Mascia, F. and Podda, L. and Laguna, E. and Fraga, P. and Rita, J. and Frigau, L. and Bacchetta, G.},
+  title     = {Alien Plant Diversity in Mediterranean Wetlands: A Comparative Study within Valencian, Balearic and Sardinian Floras},
+  journal   = {Notulae Botanicae Horti Agrobotanici Cluj-Napoca},
+  year      = {2018},
+  volume    = {46},
+  number    = {2},
+  pages     = {317--326},
+  doi       = {10.15835/nbha46210470},
+  issn      = {1842-4309},
+  keywords  = {other-topics}
+}
+
+@article{monticone2018responsiveness,
+  author    = {Monticone, M. and Frigau, L. and Vernon, H. and Rocca, B. and Mola, F.},
+  title     = {Responsiveness and minimal important change of the NeckPix in subjects with chronic neck pain undergoing rehabilitation},
+  journal   = {European Spine Journal},
+  year      = {2018},
+  volume    = {27},
+  number    = {6},
+  pages     = {1324--1331},
+  doi       = {10.1007/s00586-017-5343-9},
+  issn      = {0940-6719},
+  keywords  = {other-topics}
+}
+
+@article{fancello2017new,
+  author    = {Fancello, G. and Mola, F. and Frigau, L. and Serra, P. and Mancini, S. and Fadda, P.},
+  title     = {A new management scheme to support reverse logistics processes in the agrifood distribution sector},
+  journal   = {Transportation Research Procedia},
+  year      = {2017},
+  volume    = {25},
+  pages     = {695--715},
+  doi       = {10.1016/j.trpro.2017.05.452},
+  issn      = {2352-1465},
+  keywords  = {clustering}
+}
+
+@article{santo2017effects,
+  author    = {Santo, A. and Mattana, E. and Frigau, L. and Marzo Pastor, A. and Picher Morellò, M. C. and Bacchetta, G.},
+  title     = {Effects of NaCl stress on seed germination and seedling development of Brassica insularis Moris (Brassicaceae)},
+  journal   = {Plant Biology},
+  year      = {2017},
+  volume    = {19},
+  number    = {3},
+  pages     = {368--376},
+  doi       = {10.1111/plb.12539},
+  issn      = {1438-8677},
+  keywords  = {other-topics}
+}
+
+@article{mola2016classification,
+  author    = {Mola, F. and Antoch, J. and Frigau, L. and Conversano, C.},
+  title     = {Classification of Images Background Subtraction in Image Segmentation},
+  journal   = {Acta Universitatis Palackianae Olomucensis. Facultas Rerum Naturalium. Mathematica},
+  year      = {2016},
+  volume    = {55},
+  number    = {1},
+  pages     = {73--86},
+  url       = {https://dml.cz/handle/10338.dmlcz/145819},
+  keywords  = {image-analysis}
+}
+
+@article{pani2014data,
+  author    = {Pani, C. and Fadda, P. and Fancello, G. and Frigau, L. and Mola, F.},
+  title     = {A data mining approach to forecast late arrivals in a transhipment container terminal},
+  journal   = {Transport},
+  year      = {2014},
+  volume    = {29},
+  number    = {2},
+  pages     = {175--184},
+  doi       = {10.3846/16484142.2014.930714},
+  issn      = {1648-4142},
+  keywords  = {trees}
+}
+
+@article{santo2014light,
+  author    = {Santo, A. and Mattana, E. and Frigau, L. and Bacchetta, G.},
+  title     = {Light, temperature, dry after-ripening and salt stress effects on seed germination of Phleum sardoum (Hackel) Hackel},
+  journal   = {Plant Species Biology},
+  year      = {2014},
+  volume    = {29},
+  number    = {3},
+  pages     = {300--305},
+  doi       = {10.1111/1442-1984.12018},
+  issn      = {1442-1984},
+  keywords  = {other-topics}
+}
+
+@article{andrews2013multilingualism,
+  author    = {Andrews, E. and Frigau, L. and Voyvodic-Casabo, C. and Voyvodic, J. and Wright, J.},
+  title     = {Multilingualism and fMRI: Longitudinal Study of Second Language Acquisition},
+  journal   = {Brain Sciences},
+  year      = {2013},
+  volume    = {3},
+  number    = {2},
+  pages     = {849--876},
+  doi       = {10.3390/brainsci3020849},
+  issn      = {2076-3425},
+  keywords  = {other-topics}
+}
+
+
+% ======================================================================
+% Book chapters
+% ======================================================================
+
+@incollection{contu2026territorial,
+  author    = {Contu, G. and Atzori, F. and Carta, A. and Ortu, M. and Frigau, L.},
+  title     = {Territorial Determinants of Tourist Arrivals: A Multivariate Regression Tree Analysis},
+  booktitle = {Statistical Science: From Theory to Applied Research III},
+  editor    = {Martella, F. and Arima, S. and Marino, M. F. and Mollica, C.},
+  series    = {Italian Statistical Society Series on Advances in Statistics},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2026},
+  pages     = {38--44},
+  doi       = {10.1007/978-3-032-30881-8_7},
+  isbn      = {978-3-032-30880-1},
+  keywords  = {trees}
+}
+
+@incollection{carta2025weighted,
+  author    = {Carta, A. and Frigau, L.},
+  title     = {Weighted Logistic Oblique Tree for Regression},
+  booktitle = {Supervised and Unsupervised Statistical Data Analysis},
+  series    = {Studies in Classification, Data Analysis, and Knowledge Organization},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2025},
+  pages     = {70--82},
+  doi       = {10.1007/978-3-032-03042-9_7},
+  isbn      = {978-3-032-03042-9},
+  keywords  = {trees}
+}
+
+@incollection{frau2023value,
+  author    = {Frau, M. and Frigau, L. and Cabiddu, F. and Mola, F.},
+  title     = {Value Co-creation or Value Co-destruction? The Role of Negative Emotions in Consumer-Firm Interaction in the Social Media Platform},
+  booktitle = {The Palgrave Handbook of Interactive Marketing},
+  editor    = {Wang, C. L.},
+  publisher = {Palgrave Macmillan},
+  address   = {Cham},
+  year      = {2023},
+  pages     = {987--1011},
+  doi       = {10.1007/978-3-031-14961-0_42},
+  isbn      = {978-3-031-14961-0},
+  keywords  = {text-mining}
+}
+
+@incollection{zammarchi2021using,
+  author    = {Zammarchi, G. and Contu, G. and Frigau, L.},
+  title     = {Using eye-tracking to evaluate the viewing behavior on tourist landscapes},
+  booktitle = {ASA 2021 Statistics and Information Systems for Policy Evaluation},
+  series    = {Proceedings e report},
+  publisher = {Firenze University Press},
+  address   = {Florence},
+  year      = {2021},
+  pages     = {141--146},
+  doi       = {10.36253/978-88-5518-304-8.28},
+  isbn      = {978-88-5518-304-8},
+  keywords  = {other-topics}
+}
+
+@incollection{contu2019four,
+  author    = {Contu, G. and Frigau, L. and Romano, M.},
+  title     = {Four community detection algorithms for direct and indirect graphs},
+  booktitle = {Il Mondo che cambia},
+  publisher = {FrancoAngeli},
+  address   = {Milan},
+  year      = {2019},
+  pages     = {250--262},
+  isbn      = {9788891798701},
+  keywords  = {clustering}
+}
+
+@incollection{zammarchi2019valutazione,
+  author    = {Zammarchi, G. and Mola, F. and Contu, G. and Frigau, L.},
+  title     = {Valutazione della web usability attraverso l'eye tracking: il caso studio del portale dell'Università di Cagliari},
+  booktitle = {Il Mondo che cambia},
+  publisher = {FrancoAngeli},
+  address   = {Milan},
+  year      = {2019},
+  pages     = {278--290},
+  isbn      = {9788891798701},
+  langid    = {italian},
+  keywords  = {other-topics}
+}
+
+@incollection{contu2018comparison,
+  author    = {Contu, G. and Frigau, L.},
+  title     = {Comparison of Cluster Analysis Approaches for Binary Data},
+  booktitle = {Classification, (Big) Data Analysis and Statistical Learning},
+  series    = {Studies in Classification, Data Analysis, and Knowledge Organization},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2018},
+  pages     = {155--162},
+  doi       = {10.1007/978-3-319-55708-3_17},
+  isbn      = {978-3-319-55708-3},
+  keywords  = {clustering}
+}
+
+@incollection{mola2017analisi,
+  author    = {Mola, F. and Conversano, C. and Fadda, A. and Frigau, L.},
+  title     = {Analisi quantitativa e identificazione di tipologie della specialità sarda},
+  booktitle = {La specialità sarda alla prova della crisi globale},
+  editor    = {Coinu, G. and Demuro, G. and Mola, F.},
+  publisher = {ESI},
+  address   = {Naples},
+  year      = {2017},
+  pages     = {11--62},
+  isbn      = {978-88-495-3371-2},
+  langid    = {italian},
+  keywords  = {other-topics}
+}
+
+@incollection{frigau2016assessing,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Assessing the reliability of a multi-class classifier},
+  booktitle = {Analysis of Large and Complex Data},
+  series    = {Studies in Classification, Data Analysis, and Knowledge Organization},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2016},
+  pages     = {207--217},
+  doi       = {10.1007/978-3-319-25226-1_18},
+  isbn      = {978-3-319-25226-1},
+  keywords  = {trees}
+}
+
+@incollection{mola2013indagine,
+  author    = {Mola, F. and Fadda, A. and Frigau, L. and Cesaracciu, M. and Piludu, E.},
+  title     = {L'indagine statistica},
+  booktitle = {Identità e Autonomia in Sardegna e Scozia},
+  editor    = {Demuro, G. and Mola, F. and Ruggiu, I.},
+  publisher = {Maggioli Editore},
+  year      = {2013},
+  pages     = {15--50},
+  isbn      = {978-88-387-8243-5},
+  langid    = {italian},
+  keywords  = {other-topics}
+}
+
+
+% ======================================================================
+% Conference proceedings and abstracts
+% ======================================================================
+
+@inproceedings{carta2026heterogeneity,
+  author    = {Carta, A. and Atzori, F. and Contu, G. and Frigau, L.},
+  title     = {Heterogeneity in STEM Graduate Wages Across Italian Universities: A Weighted Mixed-Effects Analysis},
+  booktitle = {Book of Abstracts of ENBIS 2026},
+  year      = {2026},
+  pages     = {64},
+  isbn      = {979-1-224343-41-7},
+  keywords  = {other-topics}
+}
+
+@inproceedings{contu2026multivariate,
+  author    = {Contu, G. and Carta, A. and Frigau, L. and Ortu, M.},
+  title     = {Multivariate Regression Trees for the Analysis of Socio-Economic Phenomena: Evidence from Tourism and Health Outcomes},
+  booktitle = {Book of Abstracts of IFCS 2026},
+  year      = {2026},
+  keywords  = {trees}
+}
+
+@inproceedings{ortu2026precision,
+  author    = {Ortu, M. and Frigau, L. and Contu, G. and Carta, A.},
+  title     = {Precision-Oriented Semantic Filtering for Latent Topic Extraction in Multilingual Textual Corpora},
+  booktitle = {Book of Abstracts of IFCS 2026},
+  year      = {2026},
+  keywords  = {text-mining}
+}
+
+@inproceedings{carta2026interpretable,
+  author    = {Carta, A. and Frigau, L. and Contu, G. and Ortu, M.},
+  title     = {An Interpretable Ensemble of Weighted SVM–Based Oblique Decision Trees},
+  booktitle = {Book of Abstracts of IFCS 2026},
+  year      = {2026},
+  keywords  = {trees}
+}
+
+@inproceedings{carta2026novel,
+  author    = {Carta, A. and Mola, F. and Frigau, L. and Contu, G. and Ortu, M.},
+  title     = {A novel approach for oblique decision trees for regression},
+  booktitle = {Book of Abstracts of ISI 2025},
+  year      = {2026},
+  pages     = {28},
+  isbn      = {978-9-073592-43-8},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2026selecting,
+  author    = {Frigau, L. and Contu, G. and Carta, A. and Ortu, M. and Mola, F.},
+  title     = {Selecting Between Clustering Methods: An Innovative Approach},
+  booktitle = {Book of Abstracts of ISI 2025},
+  year      = {2026},
+  pages     = {17},
+  isbn      = {978-9-073592-43-8},
+  keywords  = {clustering}
+}
+
+@inproceedings{frigau2025local,
+  author    = {Frigau, L.},
+  title     = {Local Optimization-Based Clustering},
+  booktitle = {CLADAG VOC 2025 - Book of Abstract},
+  year      = {2025},
+  pages     = {258},
+  isbn      = {978-8-899594-24-4},
+  keywords  = {clustering}
+}
+
+@inproceedings{carta2025weightedb,
+  author    = {Carta, A. and Frigau, L.},
+  title     = {Weighted Logistic Oblique Tree For Regression},
+  booktitle = {CLADAG VOC 2025 - Book of Abstract},
+  year      = {2025},
+  pages     = {202},
+  isbn      = {978-8-899594-24-4},
+  keywords  = {trees}
+}
+
+@inproceedings{carta2025feature,
+  author    = {Carta, A. and Frigau, L.},
+  title     = {Feature-Selective Oblique Trees for Regression: Application to STEM Graduate Wage Prediction in Italy},
+  booktitle = {ICSTA 2025 - Proceedings of the 7th International Conference on Statistics: Theory and Applications},
+  publisher = {Avestia Publishing},
+  year      = {2025},
+  number    = {149},
+  doi       = {10.11159/icsta25.149},
+  isbn      = {978-1-990800-59-7},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2025exploring,
+  author    = {Frigau, L. and Contu, G. and Ortu, M. and Mola, F.},
+  title     = {Exploring Spatial Disparities and Gaps in Transportation and Mobility through Airbnb Reviews: A Sardinian Case Study},
+  booktitle = {IES 2025 - Book of Short Papers},
+  year      = {2025},
+  pages     = {410--417},
+  isbn      = {978-88-5495-849-4},
+  keywords  = {text-mining}
+}
+
+@inproceedings{contu2025markov,
+  author    = {Contu, G. and Frigau, L. and Ortu, M. and Mola, F.},
+  title     = {A Markov chain approach to investigate the Tourists movements: the case of Sardinia},
+  booktitle = {IES 2025 - Book of Short Papers},
+  year      = {2025},
+  pages     = {1296--1302},
+  isbn      = {978-88-5495-849-4},
+  keywords  = {other-topics}
+}
+
+@inproceedings{ortu2025self,
+  author    = {Ortu, M. and Contu, G. and Frigau, L.},
+  title     = {From Self-Perception to Feedback: Mapping Sustainability-Oriented Self-Descriptions to Airbnb Reviews},
+  booktitle = {IES 2025 - Book of Short Papers},
+  year      = {2025},
+  pages     = {1349--1355},
+  isbn      = {978-88-5495-849-4},
+  keywords  = {text-mining}
+}
+
+@inproceedings{yee2024heaping,
+  author    = {Yee, T. and Frigau, L. and Ma, C.},
+  title     = {Heaping and seeping, GAITD regression and doubly constrained reduced rank vector generalized linear models, in smoking studies},
+  booktitle = {NZSA 2024 - Presenters and Abstracts booklet},
+  year      = {2024},
+  pages     = {38},
+  keywords  = {heaping}
+}
+
+@inproceedings{frigau2024enhancing,
+  author    = {Frigau, L.},
+  title     = {Enhancing Time Slot Efficiency in Scientific Conferences by Employing Latent Dirichlet Allocation},
+  booktitle = {ODS 2024 - Book of Abstracts},
+  year      = {2024},
+  pages     = {151},
+  keywords  = {text-mining}
+}
+
+@inproceedings{ortu2023multivariate,
+  author    = {Ortu, M. and Frigau, L. and Contu, G.},
+  title     = {Multivariate Regression Tree Topic Modeling},
+  booktitle = {CLADAG 2023 Book of Abstracts and Short Papers},
+  year      = {2023},
+  pages     = {573--576},
+  isbn      = {978-88-919-3563-2},
+  keywords  = {text-mining}
+}
+
+@inproceedings{frigau2023method,
+  author    = {Frigau, L. and Contu, G. and Ortu, M. and Carta, A.},
+  title     = {A Method to Validate Clustering Partitions},
+  booktitle = {CLADAG 2023 Book of Abstracts and Short Papers},
+  year      = {2023},
+  pages     = {473--476},
+  isbn      = {978-88-919-3563-2},
+  keywords  = {clustering}
+}
+
+@inproceedings{coppola2023machine,
+  author    = {Coppola, F. and Frigau, L. and Markelj, J. and Malešič, J. and Conversano, C. and Strlič, M.},
+  title     = {Machine learning and NIR spectroscopy for dating of books},
+  booktitle = {TECHNART2023 Book of Abstracts},
+  year      = {2023},
+  pages     = {67},
+  isbn      = {978-989-9164-08-6},
+  keywords  = {trees}
+}
+
+@inproceedings{contu2023multivariate,
+  author    = {Contu, G. and Frigau, L. and Ortu, M. and Pau, S.},
+  title     = {Multivariate Regression Tree to Investigate the Italian Mortality Rates},
+  booktitle = {CLADAG 2023 Book of Abstracts and Short Papers},
+  year      = {2023},
+  pages     = {394--397},
+  isbn      = {978-88-919-3563-2},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2022optimizingb,
+  author    = {Frigau, L.},
+  title     = {Optimizing time slots in scientific meetings: a Latent Dirichlet allocation approach},
+  booktitle = {SIS 2022 Book of the Short Papers},
+  year      = {2022},
+  pages     = {110--120},
+  isbn      = {978-88-919-3231-0},
+  keywords  = {text-mining}
+}
+
+@inproceedings{contu2022semi,
+  author    = {Contu, G. and Frigau, L. and Romano, M. and Ortu, M.},
+  title     = {A semi-supervised clustering method to extract information from the electronic Word Of Mouth},
+  booktitle = {SIS 2022 Book of the Short Papers},
+  year      = {2022},
+  pages     = {1558--1563},
+  isbn      = {978-88-919-3231-0},
+  keywords  = {clustering}
+}
+
+@inproceedings{frigau2022algorithm,
+  author    = {Frigau, L. and Contu, G. and Ortu, M.},
+  title     = {The Algorithm of NeSSC for Semisupervised Clustering},
+  booktitle = {ISBIS 2022 Book of Short Papers},
+  year      = {2022},
+  pages     = {49},
+  isbn      = {979-12-210-1389-4},
+  keywords  = {clustering}
+}
+
+@inproceedings{contu2022statistical,
+  author    = {Contu, G. and Frigau, L. and Zammarchi, G.},
+  title     = {A Statistical Model to Estimate the Airbnb Price},
+  booktitle = {ISBIS 2022 Book of Short Papers},
+  year      = {2022},
+  pages     = {61},
+  isbn      = {979-12-210-1389-4},
+  keywords  = {other-topics}
+}
+
+@inproceedings{ortu2022explaining,
+  author    = {Ortu, M. and Frigau, L. and Contu, G.},
+  title     = {Explaining Student Satisfaction Assessments: A Natural Language Processing Approach},
+  booktitle = {IES 2022 Book of Short Papers},
+  year      = {2022},
+  pages     = {313--318},
+  isbn      = {978-88-94593-36-5},
+  keywords  = {text-mining}
+}
+
+@inproceedings{zammarchi2021application,
+  author    = {Zammarchi, G. and Contu, G. and Frigau, L.},
+  title     = {Application of machine learning models to discriminate tourist landscapes using eye-tracking data},
+  booktitle = {ENBIS 2021 Book of Abstracts},
+  year      = {2021},
+  pages     = {12--13},
+  isbn      = {979-12-20093-98-9},
+  keywords  = {trees}
+}
+
+@inproceedings{conversano2021network,
+  author    = {Conversano, C. and Contu, G. and Frigau, L. and Cappelli, C.},
+  title     = {Network-based Semi-supervised Clustering of Time Series Data},
+  booktitle = {CLADAG 2021 Book of Abstracts and Short Papers},
+  editor    = {Porzio, G. C. and Rampichini, C. and Bocci, C.},
+  publisher = {Firenze University Press},
+  address   = {Florence},
+  year      = {2021},
+  pages     = {62--63},
+  doi       = {10.36253/978-88-5518-340-6},
+  isbn      = {978-88-5518-340-6},
+  keywords  = {clustering}
+}
+
+@inproceedings{contu2021statistical,
+  author    = {Contu, G. and Frigau, L. and Zammarchi, G. and Mola, F.},
+  title     = {A statistical model to identify the price determinations: the case of Airbnb},
+  booktitle = {Book of Short Papers SIS 2021},
+  publisher = {Pearson},
+  year      = {2021},
+  pages     = {1100--1105},
+  isbn      = {978-889-1927-36-1},
+  keywords  = {other-topics}
+}
+
+@inproceedings{contu2020statistical,
+  author    = {Contu, G. and Frigau, L.},
+  title     = {Statistical modeling for some features of Airbnb activity},
+  booktitle = {Book of Short Papers SIS 2020},
+  publisher = {Pearson},
+  year      = {2020},
+  pages     = {1537--1542},
+  isbn      = {978-889-1910-77-6},
+  keywords  = {other-topics}
+}
+
+@inproceedings{frigau2019classification,
+  author    = {Frigau, L. and Mola, F. and Contu, G.},
+  title     = {Classification-based Approach for Validating Image Segmentation Algorithms},
+  booktitle = {Proceedings of y-BIS 2019},
+  publisher = {Mimar Sinan Fine Arts University Publications},
+  address   = {Istanbul},
+  year      = {2019},
+  pages     = {42},
+  isbn      = {978-605-5005-95-5},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{contu2019network,
+  author    = {Contu, G. and Frigau, L. and Conversano, C.},
+  title     = {Network-based Semisupervised Clustering},
+  booktitle = {Proceedings of y-BIS 2019},
+  publisher = {Mimar Sinan Fine Arts University Publications},
+  address   = {Istanbul},
+  year      = {2019},
+  pages     = {44},
+  isbn      = {978-605-5005-95-5},
+  keywords  = {clustering}
+}
+
+@inproceedings{frigau2019statistical,
+  author    = {Frigau, L. and Contu, G. and Mola, F. and Conversano, C.},
+  title     = {A statistical learning model for Airbnb's hosts},
+  booktitle = {Book of Abstracts of ISI 2019},
+  year      = {2019},
+  keywords  = {other-topics}
+}
+
+@inproceedings{frigau2019regularization,
+  author    = {Frigau, L. and Banks, D.},
+  title     = {Regularization in tree-based classification models},
+  booktitle = {Book of Abstracts of ISBIS 2019},
+  year      = {2019},
+  keywords  = {trees}
+}
+
+@inproceedings{romano2019customer,
+  author    = {Romano, M. and Frigau, L. and Contu, G. and Mola, F. and Conversano, C.},
+  title     = {Customer Satisfaction from Booking},
+  booktitle = {GARR\_18 Conference - Data (R)evolution - Selected Papers},
+  publisher = {Associazione Consortium GARR},
+  address   = {Rome},
+  year      = {2019},
+  pages     = {111--118},
+  doi       = {10.26314/GARR-Conf18-proceedings-21},
+  isbn      = {978-88-905077-8-6},
+  keywords  = {text-mining}
+}
+
+@inproceedings{frau2019value,
+  author    = {Frau, M. and Frigau, L. and Serpi, S. and Cabiddu, F.},
+  title     = {Value Co-Destruction: a Text-Mining-Based Mixed Method Study on Social Media Interactions},
+  booktitle = {Proceedings of the 20th International Conference Marketing Trends 2019 Venice},
+  editor    = {Andreani, J.-C. and Collesei, U.},
+  publisher = {Paris-Venice Marketing Trends Association},
+  year      = {2019},
+  isbn      = {978-2-490372-06-5},
+  keywords  = {text-mining}
+}
+
+@inproceedings{conversano2018semisupervised,
+  author    = {Conversano, C. and Contu, G. and Frigau, L. and Mola, F.},
+  title     = {Semisupervised Clustering through Recursive Partitioning and Complex Networks},
+  booktitle = {Book of Abstracts of ECDA 2018},
+  year      = {2018},
+  keywords  = {clustering}
+}
+
+@inproceedings{frigau2018comparison,
+  author    = {Frigau, L.},
+  title     = {Comparison of Non-parametric Approaches in Classification of Seeds},
+  booktitle = {Book of Abstracts of ISBIS 2018},
+  year      = {2018},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{frigau2017combined,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Combined methods in multi-label classification algorithms},
+  booktitle = {Proceedings of CLADAG 2017},
+  publisher = {Universitas Studiorum},
+  address   = {Mantua},
+  year      = {2017},
+  isbn      = {978-88-99459-71-0},
+  keywords  = {trees}
+}
+
+@inproceedings{antoch2017validation,
+  author    = {Antoch, J. and Conversano, C. and Frigau, L. and Mola, F.},
+  title     = {Validation of Experiments Involving Image Segmentation of Botanic Seeds},
+  booktitle = {Proceedings of CLADAG 2017},
+  publisher = {Universitas Studiorum},
+  address   = {Mantua},
+  year      = {2017},
+  isbn      = {978-88-99459-71-0},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{frigau2017sassc,
+  author    = {Frigau, L.},
+  title     = {The SASSC Algorithm: an Application to Insurance Data},
+  booktitle = {Book of Abstracts of MIPIS 2017},
+  year      = {2017},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2017advances,
+  author    = {Frigau, L. and Contu, G. and Mola, F.},
+  title     = {Advances in sequential automatic search of subset of classifiers},
+  booktitle = {Book of Abstracts of IFCS 2017},
+  year      = {2017},
+  keywords  = {trees}
+}
+
+@inproceedings{contu2017statistical,
+  author    = {Contu, G. and Frigau, L. and Conversano, C.},
+  title     = {A statistical model for supporting AirB\&B hosts activity},
+  booktitle = {Book of Abstracts of IFCS 2017},
+  year      = {2017},
+  keywords  = {other-topics}
+}
+
+@inproceedings{frigau2016validating,
+  author    = {Frigau, L. and Mola, F. and Conversano, C.},
+  title     = {Validating image segmentation of botanical seeds},
+  booktitle = {Book of Abstracts of Statistische-Woche 2016},
+  year      = {2016},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{frigau2016evaluating,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Evaluating the Effectiveness of an Image Segmentation method},
+  booktitle = {Book of Abstracts of ISBIS 2016},
+  year      = {2016},
+  pages     = {43},
+  isbn      = {978-972-674-795-6},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{mola2015background,
+  author    = {Mola, F. and Antoch, J. and Frigau, L. and Conversano, C.},
+  title     = {Background Subtraction in Image Segmentation},
+  booktitle = {Book of Abstracts of ODAM 2015},
+  year      = {2015},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{frigau2015note,
+  author    = {Frigau, L.},
+  title     = {A note on the reliability of a classifier},
+  booktitle = {Proceedings of CLADAG 2015},
+  publisher = {CUEC},
+  address   = {Cagliari},
+  year      = {2015},
+  pages     = {366--369},
+  isbn      = {978-88-8467-749-9},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2015improving,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Improving the performance of image segmentation methods through background subtraction},
+  booktitle = {Proceedings of ISI 2015},
+  publisher = {International Statistical Institute},
+  address   = {The Hague},
+  year      = {2015},
+  pages     = {56--61},
+  isbn      = {978-90-73592-35-3},
+  keywords  = {image-analysis}
+}
+
+@inproceedings{frigau2014bivariate,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {A Bivariate Cost-sensitive Classifier Performance Index},
+  booktitle = {Proceedings of COMPSTAT 2014},
+  publisher = {International Statistical Institute},
+  address   = {The Hague},
+  year      = {2014},
+  pages     = {577--584},
+  isbn      = {978-2-8399-1347-8},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2014bivariateb,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {A Bivariate Cost-sensitive Classifier Performance Index},
+  booktitle = {Book of Abstracts of COMPSTAT 2014},
+  year      = {2014},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2014assessing,
+  author    = {Frigau, L. and Conversano, C. and Mola, F.},
+  title     = {Assessing the Reliability of a Multi-class Classifier},
+  booktitle = {Book of Abstracts of ECDA 2014},
+  year      = {2014},
+  keywords  = {trees}
+}
+
+@inproceedings{cannas2013delay,
+  author    = {Cannas, M. and Fadda, P. and Fancello, G. and Frigau, L. and Mola, F. and Pani, C.},
+  title     = {Delay prediction in container terminals: A comparison of machine learning methods},
+  booktitle = {Proceedings of the WCTR (World Conference on Transport Research)},
+  year      = {2013},
+  isbn      = {978-85-285-0232-9},
+  keywords  = {trees}
+}
+
+@inproceedings{frigau2012extracting,
+  author    = {Frigau, L. and Pani, C.},
+  title     = {Extracting Information in a Transshipment Container Terminal Data Set: an Interaction between Graphical Tools and Statistical Models},
+  booktitle = {Book of Abstracts of ISBIS 2012},
+  year      = {2012},
+  keywords  = {other-topics}
+}

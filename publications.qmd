@@ -1,0 +1,60 @@
+---
+title: Publications
+subtitle: Journal articles, book chapters and conference contributions, newest first.
+description: >-
+  Publications of Luca Frigau: journal articles, book chapters and conference
+  proceedings in statistical learning, clustering, text mining and applied
+  statistics, with a timeline by research line and a map of where citations
+  come from.
+toc: true
+---
+
+::: {.pub-summary}
+{{< pubcount type="article" >}} journal articles, {{< pubcount type="chapter" >}}
+book chapters and {{< pubcount type="proceedings" >}} contributions to conference
+proceedings. Titles link to the published version. Citation metrics and the
+latest additions are on
+[Google Scholar](https://scholar.google.com/citations?user=HUFpcCcAAAAJ),
+[Scopus](https://www.scopus.com/authid/detail.uri?authorId=55771121300) and
+[ORCID](https://orcid.org/0000-0002-6316-4040). The full list is also available
+as a [BibTeX file](data/publications.bib).
+:::
+
+## Publications by research line {#lines}
+
+Each publication is counted once, in the research line of the method it
+develops or uses; applied work is counted with its method, and work outside
+the five lines is under Other topics.
+
+{{< pub-lines >}}
+
+## Publications over time {#timeline}
+
+Each mark is a publication, placed by year and by research line; the
+[Research](research.qmd) page tells the story of each line. Hover over a mark to
+see its title.
+
+{{< pub-timeline >}}
+
+## Selected publications {#selected}
+
+{{< publications selected="true" >}}
+
+## Where citations come from {#citations}
+
+{{< include _citation-map.md >}}
+
+## Journal articles {#articles}
+
+{{< publications type="article" >}}
+
+## Book chapters {#chapters}
+
+{{< publications type="chapter" >}}
+
+## Conference proceedings and abstracts {#proceedings}
+
+Short papers and abstracts in the proceedings of international and national
+conferences.
+
+{{< publications type="proceedings" collapse="true" summary="Show all conference contributions" >}}

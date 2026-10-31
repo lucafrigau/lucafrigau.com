@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+
+// Dark theme: the same design as theme.scss with a darker palette. Contrast
+// against $paper: ink 15.3:1, ink-2 10.8:1, ink-3 6.9:1, accent 9.2:1,
+// warm 8.5:1. Chart colours checked with the palette validator.
+$is-dark: true;
+$paper: #141312;
+$surface: #1C1B19;
+$card: #201F1C;
+$ink: #EDE9E2;
+$ink-2: #CAC5BC;
+$ink-3: #A29D94;
+$accent: #7CC2CD;
+$accent-strong: #A6DAE2;
+$accent-soft: #1D3438;
+$on-accent: #141312;
+$warm: #DDA463;
+$rule: #302E2A;
+$rule-strong: #4B4842;
+
+$figure-bg: #ECE8E1;
+$chart-accent: #0092D1;
+$chart-muted: #7F7A72;
+$chart-warm: #D07A26;
+$chart-land: #2C2A27;
+$mark-image: "assets/img/mark-dark.svg";

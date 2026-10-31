@@ -1,0 +1,22 @@
+---
+title: Links
+---
+
+::: {#md}
+[External](https://example.org/a) ·
+[Internal](index.qmd) ·
+[Anchor](#md) ·
+[Email](mailto:someone@example.org) ·
+[Own domain](https://lucafrigau.github.io/about.html) ·
+[Markdown with rel](https://example.org/md-rel){rel="me"}
+:::
+
+::: {#raw}
+```{=html}
+<p><a href="https://example.org/raw">Raw external</a>
+<a href="https://example.org/kept" target="_self">Kept</a>
+<a href="https://example.org/rel" rel="me">With rel</a>
+<a href="https://example.org/dup" rel="noopener">Not repeated</a>
+<a href="#raw">Raw anchor</a></p>
+```
+:::

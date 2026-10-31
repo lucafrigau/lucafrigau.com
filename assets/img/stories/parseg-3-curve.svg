@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" width="280" height="200" role="img" aria-label="Illustration: the sensitivity of the classifier grows with the number of sampled pixels and stabilizes; the smallest sufficient sample size is marked." font-family="inherit">
+<line x1="34" y1="164" x2="264" y2="164" stroke="#CFC8BB"/>
+<line x1="34" y1="14" x2="34" y2="164" stroke="#CFC8BB"/>
+<line x1="34" y1="25.2" x2="264" y2="25.2" stroke="#625E57" stroke-dasharray="4 4"/>
+<polyline points="34,137.8 45.5,108.6 57,87 68.5,71 80,59.1 91.5,50.4 103,43.8 114.5,39 126,35.5 137.5,32.8 149,30.9 160.5,29.4 172,28.3 183.5,27.5 195,26.9 206.5,26.5 218,26.2 229.5,25.9 241,25.8 252.5,25.6 264,25.5" fill="none" stroke="#0B5563" stroke-width="2.4"/>
+<line x1="137.5" y1="14" x2="137.5" y2="164" stroke="#8A4B0F" stroke-width="2"/>
+<text x="264" y="182" text-anchor="end" font-size="13" fill="#625E57">pixels sampled</text>
+<text x="26" y="24" text-anchor="end" font-size="13" fill="#625E57" transform="rotate(-90 26 24)">sensitivity</text>
+</svg>

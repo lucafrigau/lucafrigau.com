@@ -1,0 +1,78 @@
+# News, newest first.
+#
+# The Home page shows the first four items; the News page shows them all.
+# Fields:
+#   date   year and month, as YYYY-MM
+#   text   one or two sentences (Markdown allowed; links to pages of the site
+#          are written from the project folder, e.g. research/heaping.qmd)
+
+news:
+  - date: 2026-10
+    text: >
+      [AnalisiMercato](software.qmd#sw-analisimercato), a jamovi module for my
+      Market Analysis course (sampling, hierarchical cluster analysis and
+      principal component analysis, with an Italian interface), is now
+      [on GitHub](https://github.com/lucafrigau/AnalisiMercato).
+
+  - date: 2026-09
+    text: >
+      At ENBIS 2026 in Florence I organized the ISBIS invited session
+      *Advances in Statistical Analysis for Large-Scale Dynamic Networks,
+      Labour Market Outcomes, and Interpretable Ensemble Methods*.
+
+  - date: 2026-07
+    text: >
+      New book chapter on the territorial determinants of tourist arrivals in
+      Italy, based on multivariate regression trees, in the Springer series
+      of the Italian Statistical Society
+      ([doi:10.1007/978-3-032-30881-8_7](https://doi.org/10.1007/978-3-032-30881-8_7)).
+
+  - date: 2026-07
+    text: >
+      At IFCS 2026 in Milan I organized the CLADAG invited session *Advances
+      in Latent Structure Modeling* and co-authored three contributions, on
+      regression trees, topic extraction and ensembles of
+      [oblique trees](research/oblique-trees.qmd).
+
+  - date: 2025-12
+    text: >
+      Our article on heaped counts and GAITD regression, with Thomas W. Yee
+      and Chenchen Ma, appeared in *The Annals of Applied Statistics*.
+      [Read the story](research/heaping.qmd).
+
+  - date: 2025-12
+    text: >
+      The R code of PARSEG, for the statistical validation of image
+      segmentation, is now [on GitHub](https://github.com/lucafrigau/parseg).
+
+  - date: 2025-11
+    text: >
+      A probability model for risk priority numbers in failure mode and
+      effects analysis, with Rahim Mahmoudvand, Alessandro Fiori Maccioni and
+      David Banks, published in *Risk Analysis*.
+
+  - date: 2025-10
+    text: >
+      Invited talk at the 65th ISI World Statistics Congress in The Hague:
+      *Selecting Between Clustering Methods: An Innovative Approach*.
+
+  - date: 2025-10
+    text: >
+      I organized the invited session *Statistical Learning and AI for
+      Societal Challenges* at the ISBIS 2025 conference in Amsterdam.
+
+  - date: 2025-09
+    text: >
+      At CLADAG 2025 in Naples I presented local optimization-based clustering
+      and organized the invited session *Advances in Text Mining for Data
+      Analysis*.
+
+  - date: 2025-07
+    text: >
+      TORS, the oblique regression tree developed with Andrea Carta, published
+      in *Computational Statistics*. [Read the story](research/oblique-trees.qmd).
+
+  - date: 2024-10
+    text: >
+      I became Associate Professor of Statistics at the University of
+      Cagliari.

@@ -1,0 +1,161 @@
+# Site configuration: identity, navigation, appearance and metadata.
+#
+# - Personal details shared by several pages (and by the structured data read
+#   by search engines) are under `person:`.
+# - Publications, research areas and software are in data/ (see README.md).
+# - The site's address is in `site-url`, `person.url`, `own-domains` and the
+#   Sitemap line of robots.txt (see README.md, "Dominio personale").
+
+# Links to other sites open in a new tab (_extensions/site/links.lua, which
+# runs after Quarto's filters); links to these domains count as internal.
+own-domains: [lucafrigau.com, www.lucafrigau.com, lucafrigau.it, www.lucafrigau.it]
+filters:
+  - quarto
+  - site
+
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "research/*.qmd"
+    # tests/fixture is a separate test project with sample data; review/ is
+    # local review material, which may contain a copy of the site's code.
+    - "!tests/"
+    - "!review/"
+  # Files copied as they are. The leading "/" means the project folder:
+  # without it Quarto also copies files with the same names from sub-folders,
+  # such as a copy of the code in review/.
+  resources:
+    - /robots.txt
+    - /data/publications.bib
+    - /assets/img/*
+    - /assets/js/*
+
+website:
+  title: "Luca Frigau"
+  description: >-
+    Luca Frigau is Associate Professor of Statistics at the University of
+    Cagliari. Statistical learning, clustering methods, text mining
+    and applied statistics.
+  site-url: "https://lucafrigau.com"
+  favicon: assets/img/favicon.svg
+  image: assets/img/social-card.png
+  image-alt: "Luca Frigau, Associate Professor of Statistics, University of Cagliari"
+  open-graph: true
+  twitter-card: true
+  search: false
+  bread-crumbs: false
+  page-navigation: false
+  back-to-top-navigation: false
+  navbar:
+    title: "Luca Frigau"
+    collapse-below: lg
+    right:
+      - text: About
+        href: about.qmd
+      - text: Research
+        href: research.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Software & Apps
+        href: software.qmd
+      - text: Teaching
+        href: teaching.qmd
+      - text: Contact
+        href: contact.qmd
+  page-footer:
+    left: >-
+      © Luca Frigau · Department of Economics and Business Sciences,
+      University of Cagliari
+    right: >-
+      No analytics or tracking cookies · Built with
+      <a href="https://quarto.org" target="_blank" rel="noopener noreferrer">Quarto<span class="visually-hidden">
+      (opens in a new tab)</span></a>
+
+lang: en
+
+metadata-files:
+  - data/research.yml
+  - data/applications.yml
+  - data/software.yml
+  - data/news.yml
+
+publications:
+  file: data/publications.bib
+  highlight: Frigau
+
+person:
+  name: Luca Frigau
+  given-name: Luca
+  family-name: Frigau
+  job-title: Associate Professor of Statistics
+  department: Department of Economics and Business Sciences
+  department-url: https://web.unica.it/unica/en/dip_scienzeecoaziend.page
+  institution: University of Cagliari
+  institution-url: https://www.unica.it/
+  email: frigau@unica.it
+  url: https://lucafrigau.com/
+  alumni-of:
+    - Charles University
+    - University of Cagliari
+  knows-about:
+    - Computational statistics
+    - Statistical learning
+    - Machine learning
+    - Cluster analysis
+    - Semi-supervised learning
+    - Text mining
+    - Topic modeling
+    - Applied statistics
+  links:
+    - label: Email
+      text: frigau@unica.it
+      url: mailto:frigau@unica.it
+      icon: email
+    - label: ORCID
+      text: 0000-0002-6316-4040
+      url: https://orcid.org/0000-0002-6316-4040
+      icon: orcid
+    - label: Google Scholar
+      text: Citations and full list of works
+      url: https://scholar.google.com/citations?user=HUFpcCcAAAAJ
+      icon: scholar
+    - label: Scopus
+      text: Author ID 55771121300
+      url: https://www.scopus.com/authid/detail.uri?authorId=55771121300
+      icon: scopus
+    - label: GitHub
+      text: lucafrigau
+      url: https://github.com/lucafrigau
+      icon: github
+    - label: University page
+      text: Courses, office hours, notices
+      url: https://web.unica.it/unica/page/en/luca_frigau
+      icon: university
+
+format:
+  html:
+    theme:
+      light: assets/scss/theme.scss
+      dark: [assets/scss/theme.scss, assets/scss/dark.scss]
+    respect-user-color-scheme: true
+    include-in-header: assets/html/head.html
+    include-before-body: assets/html/skip-link.html
+    include-after-body: assets/html/after-body.html
+    toc: false
+    toc-depth: 2
+    toc-title: On this page
+    anchor-sections: false
+    smooth-scroll: false
+    code-copy: false
+    citations-hover: false
+    footnotes-hover: false
+    link-external-icon: false
+    link-external-newwindow: false
+    canonical-url: true
+    grid:
+      sidebar-width: 220px
+      body-width: 780px
+      margin-width: 240px
+      gutter-width: 2.5rem

@@ -1,0 +1,64 @@
+# Fields in which the methods of the research lines were applied, for the
+# diagram "From methods to real-world problems" on the Research page
+# ({{< applications >}}).
+#
+# Each field lists the BibTeX keys (data/publications.bib) of the publications
+# that apply the methods of a research line to it. The research line of a
+# publication is its area in publications.bib, so the curves of the diagram
+# follow from these lists. A publication is listed only when its title, or the
+# research story that cites it, states the application; a publication may be
+# listed in two fields. The order of the fields is the order in the diagram,
+# chosen to limit crossing curves.
+#
+# Fields:
+#   id            identifier (lowercase letters, digits, hyphens)
+#   label         name of the field
+#   publications  BibTeX keys
+
+applications:
+  fields:
+    - id: heritage
+      label: Cultural heritage
+      # World Heritage sites on the Internet (UNESCO data); dating of books.
+      publications: [contu2018comparison, coppola2023near, coppola2023machine]
+
+    - id: tourism
+      label: Tourism
+      # Booking.com and Airbnb reviews; tourist landscapes; tourist arrivals.
+      publications: [frigau2023semi, zammarchi2021application, contu2026territorial,
+                     contu2026multivariate, romano2019customer, frigau2024gauging, ortu2025self]
+
+    - id: transport
+      label: Transport and logistics
+      # Food collection; maritime accidents; container terminals; mobility.
+      publications: [fancello2017new, fadda2021investigating, cannas2013delay, pani2014data,
+                     frigau2025exploring]
+
+    - id: insurance
+      label: Insurance
+      publications: [frigau2017sassc]
+
+    - id: education
+      label: Higher education
+      # Students' comments and course evaluations; wages of graduates.
+      publications: [carta2025feature, ortu2022explaining, ortu2024topic]
+
+    - id: marketing
+      label: Marketing and social media
+      publications: [frau2019value, frau2023how, frau2023value]
+
+    - id: conferences
+      label: Scientific conferences
+      publications: [frigau2022optimizing, frigau2022optimizingb, frigau2024enhancing]
+
+    - id: health
+      label: Health
+      # Health care fraud; mortality rates; health outcomes; smoking.
+      publications: [ekin2021health, contu2023multivariate, contu2026multivariate, yee2025heaping,
+                     yee2024heaping]
+
+    - id: botany
+      label: Botany
+      # Images of botanical seeds.
+      publications: [mola2016classification, frigau2016validating, antoch2017validation,
+                     frigau2018comparison, frigau2020statistical, frigau2024parseg]

@@ -1,0 +1,22 @@
+# Quarto build output and cache
+/_site/
+/.quarto/
+/_freeze/
+
+# Local review material and tool settings
+/review/
+/.claude/
+
+# Operating system and editor files
+.DS_Store
+.Rproj.user/
+.Rhistory
+*.Rproj
+
+**/*.quarto_ipynb
+
+# Python bytecode
+__pycache__/
+
+# Downloaded data used by scripts (e.g. the Natural Earth base map)
+/.cache/

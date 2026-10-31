@@ -1,0 +1,9 @@
+---
+title: News
+subtitle: Papers, talks, sessions and other recent activities.
+description: >-
+  Recent publications, talks, conference sessions and other news from Luca
+  Frigau, statistician at the University of Cagliari.
+---
+
+{{< news >}}

@@ -1,0 +1,60 @@
+---
+title: Research
+subtitle: Statistical learning methods, and the applied problems that motivate them.
+description: >-
+  Research of Luca Frigau: clustering, decision trees and classification, text
+  mining and topic modeling, heaped counts and GAITD regression, statistical
+  image analysis and applied statistics.
+toc: true
+---
+
+My research develops statistical learning methods that are interpretable and
+computationally efficient, often together with colleagues who bring the data
+and the questions. Each of the five lines of work below has a story that
+tells how it developed. The stories distinguish the methods developed with my
+colleagues, such as NeSSC, TORS and PARSEG, from existing methods, such as
+topic models and GAITD regression, that we applied to new problems. Other
+topics and funded projects follow. The
+[Publications](publications.qmd) page shows how these lines developed over time,
+with the complete list of works.
+
+## From methods to real-world problems {#applications}
+
+The methods of the five lines below have been applied in many fields, from
+tourism and transport to health and botany. The diagram is drawn from the
+publications of each line.
+
+{{< applications >}}
+
+## Research stories {#stories}
+
+{{< research-areas which="stories" heading-level="3" >}}
+
+{{< research-areas which="others" >}}
+
+## Funded projects {#projects}
+
+### Principal investigator and scientific coordinator
+
+::: {.plain-list}
+- **Clustering in non-Euclidean spaces: theoretical foundations and alternative
+  approaches.** Principal investigator. Fondazione di Sardegna, call for basic
+  research projects 2025.
+- **HEALTH-GUARD: analysis of the environmental, economic and social
+  sustainability impacts of the processes studied in the LucAS project.**
+  Scientific coordinator for the University of Cagliari. Part of the project
+  *LucAS – Lucani tra Ambiente e Salute*, funded by the Basilicata Region.
+- **The role of advanced statistics in the co-planning of interventions
+  supporting non-self-sufficiency.** Scientific coordinator. Funded by the
+  Italian National Social Security Institute (INPS), call of 15 July 2020.
+:::
+
+### Research units
+
+I am or have been a senior member of the University of Cagliari units of
+national and regional projects, including *RISING* (National Programme for
+Research, Innovation and Competitiveness 2021–2027), *e.INS – Ecosystem of
+Innovation for Next Generation Sardinia* and *GRINS – Growing Resilient,
+Inclusive and Sustainable* (National Recovery and Resilience Plan), and
+projects funded by the Ministry of University and Research, the Fondazione di
+Sardegna, the Autonomous Region of Sardinia and the Ethereum Foundation.

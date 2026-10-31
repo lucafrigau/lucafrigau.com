@@ -1,0 +1,126 @@
+---
+title: About
+subtitle: Statistician at the University of Cagliari, working between methodology and applications.
+description: >-
+  Academic background, positions, visiting appointments, conference
+  presentations, service and professional activities of Luca Frigau,
+  Associate Professor of Statistics at the University of Cagliari.
+toc: true
+---
+
+## Profile
+
+I am an Associate Professor of Statistics (scientific sector STAT-01/A) in the
+Department of Economics and Business Sciences at the University of Cagliari,
+Italy. My research lies between computational statistics and machine learning:
+I design statistical learning methods, mainly tree-based models,
+clustering methods and text-mining techniques, and use them on
+substantive problems with colleagues from economics, medicine, engineering and
+the natural sciences.
+
+I hold a joint PhD in Probability and Mathematical Statistics (Charles
+University, Prague) and in Environmental and Applied Botany (University of
+Cagliari). After a research grant and a postdoctoral fellowship in the same
+department, I was an assistant professor from 2017 to 2024, and have been an
+associate professor since October 2024.
+
+Outside the university, I am the chief executive of SmartLab, an academic
+spin-off of the University of Cagliari that brings business intelligence and
+data science to public and private organizations.
+
+My full curriculum vitae is available on my
+[University of Cagliari page](https://web.unica.it/unica/en/ateneo_s07_ss01_sss01.page?contentId=SHD31058).
+
+## Academic positions
+
+All at the Department of Economics and Business Sciences, University of Cagliari.
+
+2024–present
+:   Associate Professor of Statistics
+
+2021–2024
+:   Assistant Professor of Statistics (tenure-track researcher, RTD-B)
+
+2017–2021
+:   Assistant Professor of Statistics (fixed-term researcher, RTD-A)
+
+2017
+:   Postdoctoral researcher in Statistics: decision support systems for data management
+
+2015–2016
+:   Research grant: recursive partitioning algorithms for multilevel data and causal inference
+
+## Education
+
+2016
+:   Joint PhD in Probability and Mathematical Statistics, Charles University,
+    Prague (supervisor: Jaromír Antoch), and in Environmental and Applied
+    Botany, University of Cagliari (supervisors: Francesco Mola and Gianluigi
+    Bacchetta). Thesis: *Morpho-Colorimetric and Non-Parametric Analysis in
+    Statistical Classification of Vascular Flora*.
+
+2010
+:   Master's degree in Managerial Economics, University of Cagliari, 110/110 cum laude
+
+2008
+:   Bachelor's degree in Economics and Business Management, University of Cagliari, 110/110 cum laude
+
+## International academic activities {#international}
+
+The places of my visiting positions and of the conferences where I presented
+my work.
+
+{{< include _travel-map.md >}}
+
+## Service to the profession
+
+- **International Society for Business and Industrial Statistics (ISBIS):**
+  member of the Executive Committee as liaison to ENBIS (2023–2027); earlier
+  Vice-President for young members and chair of the y-BIS committee
+  (2019–2021).
+- **Scientific program committees:** IFCS 2026, ISBIS 2025, CLADAG 2025,
+  ECDA 2022, CLADAG 2021, y-BIS 2019 and y-BIS 2017.
+- **Conference organization:** coordinator of the local organizing committee of
+  the 50th Scientific Meeting of the Italian Statistical Society (SIS 2021) at
+  the University of Cagliari; member of the local organizing committees of
+  PrefStat 2024, CLADAG 2015 and SIS 2014.
+- **Invited sessions:** organizer of invited sessions at ENBIS, IFCS, ISBIS,
+  CLADAG, ECDA and the ISI World Statistics Congress (2019–2026).
+- **Refereeing:** reviewer for journals including *Computational Statistics*,
+  *Statistics and Computing*, *Machine Learning*, *Statistical Methods and
+  Applications*, *Statistical Analysis and Data Mining*, *Applied Stochastic
+  Models in Business and Industry* and *Scientific Reports*.
+
+## University and public roles
+
+- Member of the board of the PhD program in Economics and Business Sciences,
+  University of Cagliari (since 2019).
+- Member of the Joint Teacher–Student Committee (CPDS) of the Department of
+  Economics and Business Sciences.
+- Representative of the University of Cagliari in the Regional Observatory on
+  Poverty of the Autonomous Region of Sardinia (2025–2026) and in the
+  Provincial Observatory of the Prefecture of Cagliari on the prevention of
+  organized crime in the tourism sector (2025–2027).
+
+## Memberships
+
+International Statistical Institute (ISI) · International Society for Business
+and Industrial Statistics (ISBIS) · Italian Statistical Society (SIS) and its
+Classification and Data Analysis Group (CLADAG) · Associazione per la
+Statistica Applicata (ASA)
+
+## Professional experience
+
+```{=html}
+<div class="org">
+  <a class="org-logo" href="https://www.smartlabkaralis.com/"><img src="assets/img/smartlab-logo.png" alt="SmartLab website" height="52"></a>
+</div>
+```
+
+Since 2012
+:   Board member and chief executive officer of
+    [SmartLab Srl](https://www.smartlabkaralis.com/), a spin-off of the
+    University of Cagliari for technology transfer in business intelligence and
+    data science. SmartLab develops decision support systems, survey studies
+    and statistical models for public and private organizations in tourism,
+    health care, agriculture, transport and energy.

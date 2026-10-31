@@ -1,0 +1,12 @@
+---
+title: Page not found
+subtitle: The page you are looking for does not exist or has moved.
+description: Page not found.
+search: false
+sitemap: false
+---
+
+Try the [home page](index.qmd), or go directly to
+[Research](research.qmd), [Publications](publications.qmd),
+[Software & Apps](software.qmd), [Teaching](teaching.qmd) or
+[Contact](contact.qmd).

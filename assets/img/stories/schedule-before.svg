@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 198" width="288" height="198" role="img" aria-label="Illustration: a conference program with five parallel rooms (columns) and five time slots (rows), coloured by topic; outlined sessions share their topic with another session in the same time slot." font-family="inherit">
+<rect x="12" y="12" width="48" height="30" rx="3" fill="#0B5563" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="66" y="12" width="48" height="30" rx="3" fill="#7C9A6A" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="120" y="12" width="48" height="30" rx="3" fill="#7C9A6A" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="174" y="12" width="48" height="30" rx="3" fill="#5B6C8F"/>
+<rect x="228" y="12" width="48" height="30" rx="3" fill="#0B5563" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="12" y="48" width="48" height="30" rx="3" fill="#A05A6E"/>
+<rect x="66" y="48" width="48" height="30" rx="3" fill="#0B5563"/>
+<rect x="120" y="48" width="48" height="30" rx="3" fill="#C08347"/>
+<rect x="174" y="48" width="48" height="30" rx="3" fill="#5B6C8F"/>
+<rect x="228" y="48" width="48" height="30" rx="3" fill="#7C9A6A"/>
+<rect x="12" y="84" width="48" height="30" rx="3" fill="#7C9A6A" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="66" y="84" width="48" height="30" rx="3" fill="#A05A6E"/>
+<rect x="120" y="84" width="48" height="30" rx="3" fill="#5B6C8F" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="174" y="84" width="48" height="30" rx="3" fill="#5B6C8F" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="228" y="84" width="48" height="30" rx="3" fill="#7C9A6A" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="12" y="120" width="48" height="30" rx="3" fill="#A05A6E" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="66" y="120" width="48" height="30" rx="3" fill="#A05A6E" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="120" y="120" width="48" height="30" rx="3" fill="#C08347" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="174" y="120" width="48" height="30" rx="3" fill="#C08347" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="228" y="120" width="48" height="30" rx="3" fill="#C08347" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="12" y="156" width="48" height="30" rx="3" fill="#C08347"/>
+<rect x="66" y="156" width="48" height="30" rx="3" fill="#5B6C8F"/>
+<rect x="120" y="156" width="48" height="30" rx="3" fill="#A05A6E"/>
+<rect x="174" y="156" width="48" height="30" rx="3" fill="#0B5563" stroke="#1C1B19" stroke-width="2.5"/>
+<rect x="228" y="156" width="48" height="30" rx="3" fill="#0B5563" stroke="#1C1B19" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,384 @@
+# Visiting positions and conference presentations: the map, its tooltips and
+# the list in the "International academic activities" section of the About
+# page. After editing this file, run
+#     python3 scripts/travel_map.py
+# which rewrites _travel-map.md (the tests check that it is up to date).
+#
+# Only activities listed in the CV and held in person:
+#   visit  visiting positions;
+#   talk   presentations given at a conference, including talks in invited
+#          sessions (the CV's "Conference presentations").
+# Not included: online events, proceedings without a talk, committees and the
+# organization of sessions.
+#
+# Fields
+#   type           visit or talk
+#   name           institution (visit) or conference, as shown on the site
+#   role           visits only: the position held, as in the CV
+#   unit, host, topic   visits only: department, who invited, research topic
+#                  (shown as "invited by <host> to collaborate on <topic>")
+#   event          talks only: full name of the conference, as in the CV
+#   title          talks only: title of the presentation, as in the CV; leave
+#                  it out if it is not documented
+#   invited        talks only: true for a talk in an invited session, as
+#                  marked in the CV
+#   city, country  in English; places with the same city share one marker
+#   year, dates    as in the CV
+#   lat, lon       position of the city, two decimals (OpenStreetMap, found
+#                  with Nominatim in October 2026; see README)
+#   source         where the entry was checked
+
+activities:
+
+  # Visiting positions ------------------------------------------------------
+
+  - type: visit
+    name: University of Auckland
+    role: Visiting fellow
+    unit: Department of Statistics
+    host: Thomas Yee
+    topic: models for generally altered, inflated and truncated count distributions
+    city: Auckland
+    country: New Zealand
+    year: 2020
+    dates: February–March 2020
+    lat: -36.85
+    lon: 174.76
+    source: CV, Visiting positions
+
+  - type: visit
+    name: Statistical and Applied Mathematical Sciences Institute (SAMSI)
+    role: Visiting fellow
+    host: David Banks
+    topic: optimization strategies for parameter estimation in agent-based modeling
+    city: Research Triangle Park
+    country: United States
+    year: 2019
+    dates: March–April 2019
+    lat: 35.89
+    lon: -78.87
+    source: CV, Visiting positions
+
+  - type: visit
+    name: Charles University
+    role: Visiting fellow
+    unit: Department of Probability and Mathematical Statistics
+    host: Jaromír Antoch
+    topic: computationally efficient non-parametric methods for validating statistical image segmentation
+    city: Prague
+    country: Czech Republic
+    year: 2017
+    dates: December 2017
+    lat: 50.09
+    lon: 14.42
+    source: CV, Visiting positions
+
+  - type: visit
+    name: Duke University
+    role: Visiting fellow
+    unit: Department of Statistical Science
+    host: David Banks
+    topic: the comparison of multi-class classifier algorithms and bias correction in replenishment sampling
+    city: Durham
+    country: United States
+    year: 2013
+    dates: January–June 2013
+    lat: 36.00
+    lon: -78.90
+    source: CV, Visiting positions
+
+  - type: visit
+    name: Charles University
+    role: Visiting fellow
+    unit: Department of Probability and Mathematical Statistics
+    host: Jaromír Antoch
+    topic: classification methods based on Fourier analysis
+    city: Prague
+    country: Czech Republic
+    year: 2011
+    dates: October 2011
+    lat: 50.09
+    lon: 14.42
+    source: CV, Visiting positions
+
+  # Conference presentations ------------------------------------------------
+
+  - type: talk
+    name: ISI World Statistics Congress
+    event: 65th International Statistical Institute World Statistics Congress
+    title: "Selecting Between Clustering Methods: An Innovative Approach"
+    invited: true
+    city: The Hague
+    country: Netherlands
+    year: 2025
+    dates: 5–9 October 2025
+    lat: 52.08
+    lon: 4.31
+    source: CV, Conference presentations
+
+  - type: talk
+    name: CLADAG
+    event: >-
+      15th Scientific Meeting of the Classification and Data Analysis Group
+      of the Italian Statistical Society
+    title: "Local Optimization-Based Clustering"
+    city: Naples
+    country: Italy
+    year: 2025
+    dates: 8–10 September 2025
+    lat: 40.84
+    lon: 14.25
+    source: CV, Conference presentations
+
+  - type: talk
+    name: IES
+    event: >-
+      12th Scientific Meeting of the Statistics for the Evaluation and Quality
+      of Services Group of the Italian Statistical Society
+    title: "Exploring Spatial Disparities and Gaps in Transportation and Mobility through Airbnb Reviews: A Sardinian Case Study"
+    invited: true
+    city: Bressanone
+    country: Italy
+    year: 2025
+    dates: 25–27 June 2025
+    lat: 46.72
+    lon: 11.66
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ODS
+    event: International Conference on Optimization and Decision Science
+    title: "Enhancing Time Slot Efficiency in Scientific Conferences by Employing Latent Dirichlet Allocation"
+    city: Badesi
+    country: Italy
+    year: 2024
+    dates: 8–12 September 2024
+    lat: 40.97
+    lon: 8.88
+    source: CV, Conference presentations
+
+  - type: talk
+    name: CLADAG
+    event: >-
+      14th Scientific Meeting of the Classification and Data Analysis Group
+      of the Italian Statistical Society
+    title: "A Method to Validate Clustering Partitions"
+    city: Salerno
+    country: Italy
+    year: 2023
+    dates: 11–13 September 2023
+    lat: 40.68
+    lon: 14.76
+    source: CV, Conference presentations
+
+  - type: talk
+    name: SIS Scientific Meeting
+    event: 51st Scientific Meeting of the Italian Statistical Society
+    title: "Optimizing time slots in scientific meetings: a Latent Dirichlet allocation approach"
+    invited: true
+    city: Caserta
+    country: Italy
+    year: 2022
+    dates: 22–24 June 2022
+    lat: 41.07
+    lon: 14.33
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISBIS
+    event: International Society for Business and Industrial Statistics 2022
+    title: "The algorithm of NeSSC for semisupervised clustering"
+    invited: true
+    city: Naples
+    country: Italy
+    year: 2022
+    dates: 20–21 June 2022
+    lat: 40.84
+    lon: 14.25
+    source: CV, Conference presentations
+
+  - type: talk
+    name: y-BIS Workshop
+    event: >-
+      ISBIS Young Business and Industrial Statisticians Workshop on Recent
+      Advances in Data Science and Business Analytics
+    title: "Classification-based approach for validating image segmentation algorithms"
+    invited: true
+    city: Istanbul
+    country: Turkey
+    year: 2019
+    dates: 25–28 September 2019
+    lat: 41.01
+    lon: 28.98
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISI World Statistics Congress
+    event: 62nd International Statistical Institute World Statistics Congress
+    title: "A statistical learning model for Airbnb's hosts"
+    invited: true
+    city: Kuala Lumpur
+    country: Malaysia
+    year: 2019
+    dates: 18–23 August 2019
+    lat: 3.15
+    lon: 101.69
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISBIS Satellite Conference
+    event: >-
+      International Society for Business and Industrial Statistics 2019
+      Satellite Conference
+    title: "Regularization in tree-based classification models"
+    invited: true
+    city: Kuala Lumpur
+    country: Malaysia
+    year: 2019
+    dates: 15–16 August 2019
+    lat: 3.15
+    lon: 101.69
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISBIS
+    event: International Society for Business and Industrial Statistics 2018 Conference
+    title: "Comparison of Non-parametric Approaches in Classification of Seeds"
+    city: Piraeus
+    country: Greece
+    year: 2018
+    dates: 4–6 July 2018
+    lat: 37.94
+    lon: 23.65
+    source: CV, Conference presentations
+
+  - type: talk
+    name: AISRe Annual Conference
+    event: >-
+      AISRe, XXXVIII Annual scientific conference: Innovation, urban systems
+      and regional growth. New development paths beyond the crisis
+    title: "Airbnb and Hidden Tourism: a Different Lecture of Touristic Flows in Sardinia"
+    invited: true
+    city: Cagliari
+    country: Italy
+    year: 2017
+    dates: 20–22 September 2017
+    lat: 39.22
+    lon: 9.11
+    source: CV, Conference presentations
+
+  - type: talk
+    name: CLADAG
+    event: >-
+      11th Scientific Meeting of the Classification and Data Analysis Group
+      of the Italian Statistical Society
+    title: "Combined Methods in Multi-label Classification Algorithms"
+    invited: true
+    city: Milan
+    country: Italy
+    year: 2017
+    dates: 13–15 September 2017
+    lat: 45.46
+    lon: 9.19
+    source: CV, Conference presentations
+
+  - type: talk
+    name: IFCS
+    event: 15th Conference of the International Federation of Classification Societies
+    title: "Advances in sequential automatic search of subset of classifiers"
+    city: Tokyo
+    country: Japan
+    year: 2017
+    dates: 8–10 August 2017
+    lat: 35.68
+    lon: 139.76
+    source: CV, Conference presentations
+
+  - type: talk
+    name: Statistische Woche
+    event: Statistische Woche 2016, sessions of the German Society for Demography
+    title: "Validating Image Segmentation of Botanical Seeds"
+    city: Augsburg
+    country: Germany
+    year: 2016
+    dates: 13–16 September 2016
+    lat: 48.37
+    lon: 10.90
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISBIS
+    event: International Society for Business and Industrial Statistics 2016 Conference
+    title: "Evaluating the Effectiveness of an Image Segmentation Method"
+    invited: true
+    city: Barcelona
+    country: Spain
+    year: 2016
+    dates: 8–10 June 2016
+    lat: 41.38
+    lon: 2.18
+    source: CV, Conference presentations
+
+  - type: talk
+    name: CLADAG
+    event: >-
+      10th Scientific Meeting of the Classification and Data Analysis Group
+      of the Italian Statistical Society
+    title: "A Note on the Reliability of a Classifier"
+    city: Cagliari
+    country: Italy
+    year: 2015
+    dates: 8–10 October 2015
+    lat: 39.22
+    lon: 9.11
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISI World Statistics Congress
+    event: 60th International Statistical Institute World Statistics Congress
+    title: "Background Subtraction in Image Segmentation"
+    invited: true
+    city: Rio de Janeiro
+    country: Brazil
+    year: 2015
+    dates: 26–31 July 2015
+    lat: -22.91
+    lon: -43.21
+    source: CV, Conference presentations
+
+  - type: talk
+    name: COMPSTAT
+    event: 21st International Conference on Computational Statistics
+    title: "A Bivariate Cost-Sensitive Classifier Performance Index"
+    city: Geneva
+    country: Switzerland
+    year: 2014
+    dates: 19–22 August 2014
+    lat: 46.20
+    lon: 6.15
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ECDA
+    event: Second European Conference on Data Analysis
+    title: "Assessing the Reliability of a Multi-class Classifier"
+    city: Bremen
+    country: Germany
+    year: 2014
+    dates: 2–4 July 2014
+    lat: 53.08
+    lon: 8.81
+    source: CV, Conference presentations
+
+  - type: talk
+    name: ISBIS
+    event: International Society for Business and Industrial Statistics 2012 Conference
+    title: "Extracting Information in a Transshipment Container Terminal Data Set: an Interaction between Graphical Tools and Statistical Models"
+    invited: true
+    city: Bangkok
+    country: Thailand
+    year: 2012
+    dates: 17–21 June 2012
+    lat: 13.75
+    lon: 100.49
+    source: CV, Conference presentations

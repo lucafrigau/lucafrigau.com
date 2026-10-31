@@ -1,0 +1,35 @@
+---
+title: Story
+publications:
+  file: data/sample.bib
+  highlight: Frigau
+---
+
+::: {.story-header}
+::: {.story-lead}
+A sample research story.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+:::
+
+## The question
+
+::: {#text}
+With a DOI: {{< cite alpha2025 >}}. Without DOI or URL: {{< cite delta2020 >}}.
+With other words: {{< cite delta2020 text="the 2020 paper" >}}.
+:::
+
+## First phase [2010–2012]{.period} {#first}
+
+## Second phase & more [2013]{.period} {#second}
+
+## Publications in this line {#publications}
+
+::: {#line}
+{{< publications line="clustering" >}}
+:::
+
+## More research stories

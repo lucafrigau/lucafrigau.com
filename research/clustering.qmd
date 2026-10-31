@@ -1,0 +1,168 @@
+---
+pagetitle: Clustering
+description: >-
+  How a line of research on cluster analysis developed: clustering methods in
+  applied problems, network-based semi-supervised clustering (NeSSC) and its
+  extensions, and the validation of partitions. A research story by Luca
+  Frigau.
+title-block-style: none
+---
+
+::: {.story-header}
+[← Research](../research.qmd){.back-link}
+
+::: {.overline}
+Research story · Clustering
+:::
+
+# How do we find groups in data that we can trust?
+
+::: {.story-lead}
+Cluster analysis looks for groups of similar observations. This line of work
+began with existing methods applied to real problems, continued with a
+semi-supervised method, NeSSC, that lets an outcome variable guide the groups,
+and now asks whether a partition, and the method behind it, can be trusted.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+
+Period
+:   2017 to the present
+
+Threads
+:   Clustering in applied problems; semi-supervised clustering (NeSSC); validation of partitions
+
+Selected collaborators
+:   Claudio Conversano, Giulia Contu, Francesco Mola, Marco Ortu, Maurizio
+    Romano, Andrea Carta. All authors are listed
+    [with each publication](#publications).
+
+Now
+:   Principal investigator of a project on clustering in non-Euclidean spaces
+    (Fondazione di Sardegna)
+:::
+
+## The question
+
+Clustering looks for groups of similar observations without knowing them in
+advance, and two questions follow. First, "similar" depends on what we care
+about: customers can be grouped by age, by spending or by the places they
+visit, and each choice gives different groups. Second, different algorithms,
+or the same algorithm with different settings, return different partitions of
+the same data. Which one should we trust?
+
+{{< story-figure files="assets/img/stories/clusters-predictors.svg,assets/img/stories/clusters-outcome.svg" labels="Groups from the predictors only|Groups guided by the outcome" caption="Schematic illustration with simulated data: the same observations grouped in two ways. The shade of the points is the value of an outcome variable. In this example, the groups found from the predictors only (left) mix low and high values of the outcome, while the groups guided by the outcome, as in semi-supervised clustering (right), are also homogeneous in the outcome. With real data, this homogeneity is an aim of the method, not a guarantee." >}}
+
+## Clustering in applied problems [2017–2019]{.period} {#applied}
+
+The first works used and compared existing methods on real problems. In a
+study of reverse logistics for food that stores can no longer sell, clustering
+algorithms divided the test area, the province of Cagliari, into collection
+sectors: the first of two modules of a management scheme, the second of which
+plans the collection routes ({{< cite fancello2017new >}}).
+
+We compared two methods for binary data, monothetic analysis and model-based
+co-clustering, on a UNESCO data set of 58 binary variables on the use of the
+Internet to promote World Heritage sites
+({{< cite contu2018comparison text="Springer, 2018" >}}). A chapter dealt with
+*four community detection algorithms for direct and indirect graphs*
+({{< cite contu2019four text="2019" >}}): detecting
+communities in a network is also the last step of the method described next.
+
+## Groups guided by an outcome [2018–2022]{.period} {#nessc}
+
+Often a variable of interest is available: a satisfaction score, a price, a
+clinical outcome. It is not the cluster structure we are looking for, but it
+can be a good proxy of it, a *noisy surrogate*. Network-based semi-supervised
+clustering (NeSSC), which we developed, uses it in three phases:
+
+1. a classification or regression tree is trained on many resampled versions
+   of the data, with the outcome as response;
+2. together, the fitted models give a matrix of pairwise affinities: how
+   similar each pair of observations is with respect to the outcome;
+3. the matrix becomes a network, in which observations are nodes and
+   affinities are links, and an existing community detection algorithm
+   (Louvain, label propagation or Walktrap) finds groups of densely connected
+   nodes: the clusters.
+
+{{< story-figure files="assets/img/stories/nessc-1-data.svg,assets/img/stories/nessc-2-affinity.svg,assets/img/stories/nessc-3-network.svg,assets/img/stories/nessc-4-clusters.svg" labels="1 · Data and outcome|2 · Pairwise affinity|3 · Network|4 · Clusters" caption="Schematic illustration with simulated data of the steps of NeSSC. The colour of the points in the first panel is the value of the outcome." >}}
+
+The article that introduced NeSSC ({{< cite frigau2021network >}}) specifies
+the method with trees and the three community detection algorithms above,
+discusses when to stop and how to choose the final partition, and shows on
+real and simulated data that its results are easier to interpret than those
+of three alternative semi-supervised clustering methods. The network is more
+than a computational device: it shows how observations are related to each
+other. Before the article, two conference contributions had dealt with
+semi-supervised clustering through recursive partitioning and complex networks
+({{< cite conversano2018semisupervised text="ECDA 2018" >}}) and with
+network-based semi-supervised clustering
+({{< cite contu2019network text="y-BIS 2019" >}}).
+
+Later conference papers applied NeSSC to time series
+({{< cite conversano2021network text="CLADAG 2021" >}}) and described its
+algorithm in an invited session
+({{< cite frigau2022algorithm text="ISBIS 2022" >}}).
+
+## Choosing the partition for a numeric outcome [2024]{.period} {#overlap}
+
+When the outcome is numeric, which of the candidate partitions should NeSSC
+return? We proposed to choose it by
+how little the distributions of the outcome overlap across clusters, with a
+penalty for the number of clusters
+({{< cite conversano2024overlapping >}}). On artificial data and 20 real data
+sets, compared with three popular semi-supervised clustering methods for
+numeric outcomes, NeSSC with this criterion worked particularly well when
+there were few, well-localized clusters.
+
+## Grouping texts by their sentiment [2022–2023]{.period} {#sentiment}
+
+NeSSC is also the last step of semi-supervised sentiment clustering, which we
+developed ({{< cite frigau2023semi >}}). Sentiment analysis first labels texts as
+positive or negative; a threshold-based naive Bayes classifier then estimates
+the overall sentiment of each text and gives a sentiment value to its topics;
+finally, NeSSC groups the texts. On reviews written by customers of
+Booking.com, the clusters were distinct and homogeneous in their overall
+sentiment, and the network representation helped to interpret them. A
+conference paper applied semi-supervised clustering to electronic word of
+mouth ({{< cite contu2022semi text="SIS 2022" >}}).
+
+## Another semi-supervised method: maritime accidents [2021]{.period} {#maritime}
+
+Not all the semi-supervised work uses NeSSC. In a study of 1,079 sea accidents
+recorded by the International Maritime Organization, existing semi-supervised
+recursively partitioned mixture models were used to identify and categorize
+causal themes, with special attention to the human element
+({{< cite fadda2021investigating >}}).
+
+## Can a partition be trusted? [2023–2025]{.period} {#validation}
+
+More recent contributions, presented at conferences, address the second
+question of this page:
+
+- a method to validate clustering partitions
+  ({{< cite frigau2023method text="CLADAG 2023" >}});
+- an approach to choose between clustering methods, presented in an invited
+  session of the World Statistics Congress, which combines internal and
+  relative validation criteria with machine learning algorithms to rank
+  candidate partitions, also for high-dimensional data
+  ({{< cite frigau2026selecting text="ISI 2025" >}});
+- local optimization-based clustering
+  ({{< cite frigau2025local text="CLADAG 2025" >}}).
+
+## Current work {#now}
+
+The research continues in the project *Clustering in non-Euclidean spaces:
+theoretical foundations and alternative approaches*, funded by the Fondazione
+di Sardegna (call for basic research projects 2025), of which I am principal
+investigator.
+
+## Publications in this line {#publications}
+
+{{< publications line="clustering" >}}
+
+## More research stories
+
+{{< story-nav >}}

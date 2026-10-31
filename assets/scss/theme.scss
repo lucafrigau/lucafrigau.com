@@ -1,0 +1,2508 @@
+/*-- scss:defaults --*/
+
+// Palette of the light theme; assets/scss/dark.scss overrides these values
+// for the dark theme. Contrast against $paper (WCAG AA needs 4.5:1 for text):
+// ink 16.4:1, ink-2 9.4:1, ink-3 6.1:1, accent 8.0:1, warm 6.5:1.
+$is-dark: false !default;
+$paper: #FAF9F6 !default;
+$surface: #F2F0EB !default;
+$card: #FFFFFF !default;
+$ink: #1C1B19 !default;
+$ink-2: #46433D !default;
+$ink-3: #625E57 !default;
+$accent: #0B5563 !default;
+$accent-strong: #083F49 !default;
+$accent-soft: #E5EEEF !default;
+$on-accent: #FFFFFF !default;
+$warm: #8A4B0F !default;
+$rule: #E4DFD5 !default;
+$rule-strong: #CFC8BB !default;
+
+// Illustrations keep a light background in both themes (their colours are
+// fixed in the SVG files); charts take their colours from these tokens,
+// checked with the data-visualization palette validator (3:1 or more against
+// the background, distinguishable under colour-vision deficiencies).
+$figure-bg: #FAF9F6 !default;
+$figure-ink: #46433D !default;
+$chart-accent: #00608A !default;
+$chart-muted: #857F76 !default;
+$chart-warm: #B35A00 !default;
+$chart-land: #E6E1D8 !default;
+$mark-image: "assets/img/mark.svg" !default;
+
+$font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+$font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// Bootstrap
+$body-bg: $paper;
+$body-color: $ink;
+$primary: $accent;
+$secondary: $ink-3;
+$link-color: $accent;
+$link-hover-color: $accent-strong;
+$border-color: $rule;
+$font-family-sans-serif: $font-sans;
+$font-size-base: 1.0625rem;
+$line-height-base: 1.65;
+$headings-font-family: $font-serif;
+$headings-font-weight: 600;
+$headings-line-height: 1.2;
+$headings-color: $ink;
+
+// Quarto
+$navbar-bg: $paper;
+$navbar-fg: $ink-2;
+$navbar-hl: $accent;
+$footer-bg: $paper;
+$footer-fg: $ink-3;
+$toc-color: $ink-3;
+$toc-font-size: 0.9rem;
+$toc-active-border: $accent;
+$toc-inactive-border: $rule;
+
+
+/*-- scss:rules --*/
+
+// ---------------------------------------------------------------------------
+// Fonts: self-hosted variable fonts (SIL Open Font License, assets/fonts/).
+// Paths are relative to the compiled stylesheet in site_libs/bootstrap/.
+// ---------------------------------------------------------------------------
+$range-latin: unquote("U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD");
+$range-latin-ext: unquote("U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF");
+
+@mixin font-face($family, $file, $style, $range) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url("assets/fonts/#{$file}.woff2") format("woff2");
+    unicode-range: $range;
+  }
+}
+
+@include font-face("Source Serif 4", "source-serif-4-latin-wght-normal", normal, $range-latin);
+@include font-face("Source Serif 4", "source-serif-4-latin-ext-wght-normal", normal, $range-latin-ext);
+@include font-face("Source Serif 4", "source-serif-4-latin-wght-italic", italic, $range-latin);
+@include font-face("Source Serif 4", "source-serif-4-latin-ext-wght-italic", italic, $range-latin-ext);
+@include font-face("Source Sans 3", "source-sans-3-latin-wght-normal", normal, $range-latin);
+@include font-face("Source Sans 3", "source-sans-3-latin-ext-wght-normal", normal, $range-latin-ext);
+@include font-face("Source Sans 3", "source-sans-3-latin-wght-italic", italic, $range-latin);
+@include font-face("Source Sans 3", "source-sans-3-latin-ext-wght-italic", italic, $range-latin-ext);
+
+// ---------------------------------------------------------------------------
+// Base
+// ---------------------------------------------------------------------------
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  // Very long words (or URLs) wrap instead of overflowing narrow boxes,
+  // also with large text.
+  overflow-wrap: break-word;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: $accent-soft;
+  color: $ink;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid $accent;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+main.content {
+  h2 {
+    font-size: clamp(1.45rem, 1.2rem + 0.9vw, 1.85rem);
+    letter-spacing: -0.01em;
+    margin-top: 3.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  > p, section > p, section > ul > li, .area > p {
+    max-width: 70ch;
+  }
+}
+
+.icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+}
+
+// Skip link: hidden until focused with the keyboard.
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  background: $ink;
+  color: $paper;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:focus {
+    top: 0.75rem;
+    color: $paper;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Header and footer
+// ---------------------------------------------------------------------------
+#quarto-header .navbar {
+  border-bottom: 1px solid $rule;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+#quarto-header .navbar-container {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+// The name stays on the left (Quarto centres it with mx-auto) and is never cut.
+#quarto-header .navbar-brand-container {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+// Small screens: name on the left, menu button on the right. Quarto keeps
+// 115 px beside the name for the buttons, which here are all on the right:
+// the name can use all the room they leave.
+@include media-breakpoint-down(lg) {
+  #quarto-header .navbar-brand-container {
+    order: 0;
+    max-width: none;
+  }
+
+  #quarto-header .navbar-toggler {
+    order: 2;
+  }
+
+  #quarto-header .navbar-collapse {
+    order: 3;
+  }
+}
+
+// Large screens: the name keeps its width. When the menu does not fit beside
+// it (with the text enlarged), the menu wraps onto more lines, and the row
+// wraps too if even that is not enough: nothing is cut.
+@include media-breakpoint-up(lg) {
+  #quarto-header .navbar-container {
+    flex-wrap: wrap;
+  }
+
+  #quarto-header .navbar-brand-container {
+    flex-shrink: 0;
+  }
+
+  // Measured at its narrowest, the menu stays in the row of the name.
+  #quarto-header .navbar-collapse {
+    flex-basis: 0;
+  }
+
+  #quarto-header .navbar-nav {
+    flex-wrap: wrap;
+  }
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+// The mark is decorative, so it is drawn by CSS inside the single home link.
+.navbar-title::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 0.6rem;
+  vertical-align: -6px;
+  background: url("#{$mark-image}") center / contain no-repeat;
+}
+
+.navbar-title {
+  font-family: $font-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: $ink;
+  // Quarto keeps the name on one line: with very large text it wraps instead.
+  white-space: normal;
+}
+
+// The narrowest phones: the whole name fits beside the buttons at a smaller
+// size, and below 320 px (folded phones) without the mark.
+@media (max-width: 359.98px) {
+  #quarto-header .navbar-brand {
+    margin-right: 0.5rem;
+  }
+
+  .navbar-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 319.98px) {
+  .navbar-title {
+    font-size: 1.05rem;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: $ink-2;
+  padding: 0.5rem 0.75rem;
+
+  &:hover, &:focus-visible {
+    color: $accent;
+  }
+
+  &.active {
+    color: $accent;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar-nav .nav-link.active {
+    box-shadow: inset 0 -2px 0 $accent;
+  }
+}
+
+// Bootstrap replaces the focus outline of navigation links (also those of
+// the page contents) with a faint ring, which the underline of the current
+// page hides: use the outline of the rest of the site.
+.nav-link:focus-visible {
+  outline: 3px solid $accent;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.navbar-toggler {
+  border: 1px solid $rule-strong;
+  padding: 0.4rem 0.55rem;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($accent, 0.35);
+  }
+}
+
+.footer {
+  border-top: 1px solid $rule;
+}
+
+// The footer has no centre column (see page-footer in _quarto.yml): Quarto
+// fills it with a space, which takes room on small screens.
+.nav-footer-center:not(:has(*)) {
+  display: none;
+}
+
+.nav-footer {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  border-top: 0;
+  font-size: 0.88rem;
+  color: $ink-3;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $ink-2;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Page titles
+// ---------------------------------------------------------------------------
+#title-block-header {
+  margin-top: clamp(2rem, 5vw, 3.75rem);
+  margin-bottom: 2.25rem;
+}
+
+.quarto-title .title {
+  font-size: clamp(2.3rem, 1.8rem + 2.2vw, 3.2rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+// The page description is used for search engines and link previews; the
+// subtitle is the visible introduction.
+.quarto-title-block .description {
+  display: none;
+}
+
+.quarto-title .subtitle {
+  font-family: $font-serif;
+  font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: $ink-2;
+  max-width: 38rem;
+  padding-top: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Home page
+// ---------------------------------------------------------------------------
+.home-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(2rem, 5vw, 3.75rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid $rule;
+}
+
+@include media-breakpoint-up(lg) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 17.5rem;
+    gap: 5rem;
+  }
+}
+
+.overline p {
+  margin: 0;
+}
+
+.overline {
+  display: block;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 2rem + 4.2vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+}
+
+.hero .lead p {
+  font-family: $font-serif;
+  font-size: clamp(1.2rem, 1.05rem + 0.65vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: $ink;
+  max-width: 34em;
+  margin-bottom: 1rem;
+}
+
+.hero .affiliation {
+  color: $ink-3;
+  margin-bottom: 0;
+  max-width: 40em;
+}
+
+.hero-art {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .hero-art {
+    display: none;
+  }
+}
+
+.home-section {
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0;
+  border-bottom: 1px solid $rule;
+
+  // The page layout already leaves space before the footer.
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  // The overline sits right above the heading. `main.content h2` and
+  // Quarto's own rules (with ids, on small screens) add space above
+  // headings, hence !important.
+  h2 {
+    margin-top: 0 !important;
+  }
+}
+
+.section-intro {
+  color: $ink-2;
+  max-width: 62ch;
+  margin-bottom: 1.75rem;
+}
+
+.more-link {
+  margin: 1.5rem 0 0;
+  font-weight: 600;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Full-width tinted band behind a section (without horizontal scrolling).
+.home-band {
+  background: $surface;
+  box-shadow: 0 0 0 100vmax $surface;
+  clip-path: inset(0 -100vmax);
+  border-bottom: 0;
+}
+
+.home-section > .overline,
+.home-col > .overline {
+  margin-bottom: 0.4rem;
+}
+
+.home-columns {
+  display: grid;
+  gap: 3rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .home-columns {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.85fr);
+    gap: 4.5rem;
+  }
+}
+
+.home-duo {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .home-duo {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Profile links
+// ---------------------------------------------------------------------------
+.profile-links {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.5rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid $rule-strong;
+    border-radius: 999px;
+    color: $ink-2;
+    font-size: 0.94rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $accent;
+      background: $accent-soft;
+      color: $accent-strong;
+    }
+  }
+}
+
+.profile-links--list {
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0.5rem;
+  border-top: 1px solid $rule;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $rule;
+  }
+
+  a {
+    min-height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: $accent;
+    font-size: 1.02rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba($accent, 0.35);
+
+    &:hover {
+      background: none;
+      text-decoration-color: $accent;
+    }
+  }
+}
+
+.profile-detail {
+  color: $ink-3;
+  font-size: 0.92rem;
+}
+
+// ---------------------------------------------------------------------------
+// Research areas
+// ---------------------------------------------------------------------------
+.area {
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  li {
+    padding: 0.12rem 0.65rem;
+    border-radius: 999px;
+    background: $accent-soft;
+    color: $accent-strong;
+    font-size: 0.83rem;
+  }
+}
+
+.area-label {
+  margin: 1.5rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $ink-3;
+}
+
+// ---------------------------------------------------------------------------
+// Publications
+// ---------------------------------------------------------------------------
+.pub-summary {
+  color: $ink-2;
+  margin-bottom: 0.5rem;
+}
+
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pub {
+  padding: 1rem 0 1.05rem;
+  border-top: 1px solid $rule;
+
+  p {
+    margin: 0;
+  }
+}
+
+.pub-title {
+  font-family: $font-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: $ink;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba($accent, 0.3);
+
+    &:hover {
+      color: $accent;
+      text-decoration-color: $accent;
+    }
+  }
+}
+
+.pub-authors {
+  margin-top: 0.3rem !important;
+  color: $ink-2;
+  font-size: 0.96rem;
+}
+
+.pub-me {
+  color: $ink;
+  font-weight: 600;
+}
+
+.pub-source, .pub-meta {
+  color: $ink-3;
+  font-size: 0.96rem;
+
+  cite {
+    font-style: italic;
+    color: $ink-2;
+  }
+}
+
+.pub-meta {
+  margin-top: 0.25rem !important;
+}
+
+.pub-extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.85rem;
+  margin-top: 0.35rem !important;
+  font-size: 0.86rem;
+  color: $ink-3;
+}
+
+// DOI: a quiet link in the colour of the surrounding details, underlined
+// like the other links.
+.pub-doi {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.5rem;
+  color: $ink-3;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  span {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  &:hover {
+    color: $accent;
+
+    span {
+      text-decoration-thickness: 2px;
+    }
+  }
+}
+
+.pub-note {
+  margin-top: 0.4rem !important;
+  max-width: 68ch;
+  color: $ink-2;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.pub-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  // Underlined like the other links, so that they are not told apart from
+  // the text by colour alone.
+  span {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  &:hover span {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.pub-cite {
+  // Quarto gives every <details> a bottom margin, which would lift "Cite"
+  // above the other items of the row.
+  margin: 0;
+
+  > summary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.5rem;
+    cursor: pointer;
+    color: $accent;
+    font-weight: 600;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      margin-left: 0.3rem;
+    }
+  }
+
+  &[open] {
+    flex-basis: 100%;
+
+    > summary::after {
+      content: "−";
+    }
+  }
+
+  pre {
+    max-width: 100%;
+    margin: 0.5rem 0 0.25rem;
+    padding: 0.75rem 1rem;
+    background: $surface;
+    border: 1px solid $rule;
+    border-radius: 6px;
+    color: $ink;
+    font-size: 0.78rem;
+  }
+
+  pre,
+  code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
+main.content .pub-year {
+  margin: 0;
+  padding: 1.05rem 0 0;
+  border-top: 2px solid $ink;
+  font-family: $font-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: $ink;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+// Year in a left column, entries on the right.
+.pubs--full:has(> .pub-year) {
+  display: grid;
+  grid-template-columns: 4.75rem minmax(0, 1fr);
+  margin-bottom: 1.5rem;
+
+  > .pub-list {
+    border-top: 2px solid $ink;
+
+    > .pub:first-child {
+      border-top: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .pubs--full:has(> .pub-year) {
+    grid-template-columns: minmax(0, 1fr);
+
+    > .pub-list {
+      border-top: 0;
+    }
+  }
+
+  main.content .pub-year {
+    padding-bottom: 0.25rem;
+  }
+}
+
+.pubs--compact {
+  > .pub-list > .pub:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+.pub-details {
+  border: 1px solid $rule;
+  border-radius: 6px;
+  background: $card;
+  padding: 0 1.25rem;
+
+  > summary {
+    padding: 0.9rem 0;
+    cursor: pointer;
+    color: $accent;
+    font-weight: 600;
+  }
+
+  &[open] > summary {
+    border-bottom: 1px solid $rule;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  list-style: none;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------------------------
+// Software and applications
+// ---------------------------------------------------------------------------
+.project-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.5rem 1.3rem;
+  background: $card;
+  border: 1px solid $rule;
+  border-radius: 8px;
+  color: $ink;
+}
+
+.project-kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+main.content .project-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.3rem;
+}
+
+.project-text {
+  color: $ink-2;
+  font-size: 0.98rem;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+
+  li {
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    background: $surface;
+    color: $ink-2;
+    font-size: 0.8rem;
+  }
+}
+
+.project-links {
+  list-style: none;
+  padding: 1.1rem 0 0;
+  margin: auto 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.1rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.project-link--primary {
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  background: $accent;
+  color: $on-accent;
+
+  &:hover {
+    background: $accent-strong;
+    color: $on-accent;
+  }
+}
+
+.project-note {
+  margin: 0.8rem 0 0;
+  font-size: 0.83rem;
+  color: $ink-3;
+}
+
+// ---------------------------------------------------------------------------
+// About, Teaching, Contact
+// ---------------------------------------------------------------------------
+main.content dl {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  margin: 0 0 1.5rem;
+
+  dt, dd {
+    margin: 0;
+    padding: 0.75rem 0;
+    border-top: 1px solid $rule;
+  }
+
+  dt {
+    padding-right: 1.25rem;
+    font-weight: 600;
+    color: $ink-3;
+    font-variant-numeric: tabular-nums;
+  }
+
+  dd p {
+    margin: 0;
+  }
+}
+
+main.content .courses dl {
+  grid-template-columns: 15rem minmax(0, 1fr);
+}
+
+@include media-breakpoint-down(sm) {
+  main.content dl,
+  main.content .courses dl {
+    grid-template-columns: minmax(0, 1fr);
+
+    dt {
+      padding-bottom: 0;
+    }
+
+    dd {
+      border-top: 0;
+      padding-top: 0.2rem;
+    }
+  }
+}
+
+// Lists of items with a bold title, separated by rules (e.g. funded projects).
+.plain-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+
+  li {
+    max-width: none;
+    padding: 0.8rem 0;
+    border-top: 1px solid $rule;
+    color: $ink-2;
+  }
+
+  strong {
+    color: $ink;
+  }
+}
+
+.note {
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid $accent;
+  background: $accent-soft;
+  color: $ink;
+  border-radius: 0 6px 6px 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+// Contact page: static map drawn from OpenStreetMap data by
+// scripts/contact_map.py; square on phones, cropped around the marker.
+.contact-map {
+  margin: 0;
+  aspect-ratio: 760 / 420;
+  overflow: hidden;
+  border: 1px solid $rule;
+  border-radius: 10px;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .contact-map {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.contact-map-svg {
+  font-family: $font-sans;
+
+  .cm-bg { fill: $surface; }
+  .cm-green { fill: mix(#7FA36B, $surface, 30%); }
+  .cm-building { fill: mix($ink, $surface, 9%); }
+
+  .cm-casing,
+  .cm-street {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .cm-casing { stroke: $rule-strong; }
+  .cm-casing--major { stroke-width: 11; }
+  .cm-casing--minor { stroke-width: 7; }
+  .cm-casing--service { stroke-width: 4.5; }
+  .cm-street { stroke: $paper; }
+  .cm-street--major { stroke-width: 9; }
+  .cm-street--minor { stroke-width: 5; }
+  .cm-street--service { stroke-width: 2.5; }
+  .cm-target { fill: $accent-soft; stroke: $accent; stroke-width: 2; }
+  .cm-pin { fill: $accent; stroke: $paper; stroke-width: 2; }
+  .cm-pin-dot { fill: $paper; }
+
+  .cm-street-label,
+  .cm-place-label,
+  .cm-name {
+    paint-order: stroke;
+    stroke-linejoin: round;
+  }
+
+  .cm-street-label {
+    fill: $ink-3;
+    font-size: 11.5px;
+    font-style: italic;
+    stroke: $paper;
+    stroke-width: 3px;
+  }
+
+  .cm-place-label {
+    fill: $ink-2;
+    font-size: 12px;
+    stroke: $surface;
+    stroke-width: 3px;
+  }
+
+  .cm-name {
+    fill: $ink;
+    font-size: 14px;
+    font-weight: 600;
+    stroke: $surface;
+    stroke-width: 4px;
+  }
+}
+
+.contact-map-links {
+  margin: 0.75rem 0 0.25rem;
+  font-weight: 600;
+}
+
+.contact-grid h2:first-child {
+  margin-top: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Research stories: cards, story pages, figures
+// ---------------------------------------------------------------------------
+.story-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .story-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.story-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $card;
+  border: 1px solid $rule;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-within {
+    border-color: $rule-strong;
+    box-shadow: 0 14px 32px -20px rgba($ink, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+.story-card__art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13.5rem;
+  padding: 1.25rem 1.5rem;
+  background: $figure-bg;
+  border-bottom: 1px solid $rule;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.story-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.35rem 1.5rem 1.4rem;
+}
+
+.story-card__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+main.content .story-card__title {
+  margin: 0 0 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.25;
+
+  a {
+    color: $ink;
+    text-decoration: none;
+
+    // The whole card is clickable, through the title link.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      &::after {
+        outline: 3px solid $accent;
+        outline-offset: -3px;
+      }
+    }
+  }
+}
+
+.story-card__text {
+  margin: 0 0 1rem;
+  color: $ink-2;
+  font-size: 0.98rem;
+}
+
+.story-card__more {
+  margin: auto 0 0;
+  color: $accent;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.story-card:hover .story-card__more {
+  text-decoration: underline;
+}
+
+// Story pages
+.story-header {
+  margin: clamp(1.75rem, 4vw, 3rem) 0 2.5rem;
+
+  .overline {
+    margin-bottom: 0.9rem;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+main.content .story-header h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 1.6rem + 2.6vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.story-lead p {
+  max-width: 36em;
+  margin: 0;
+  font-family: $font-serif;
+  font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  line-height: 1.45;
+  color: $ink-2;
+}
+
+.glance {
+  padding-top: 0.75rem;
+  border-top: 2px solid $ink;
+  font-size: 0.9rem;
+
+  > p:first-child {
+    margin-bottom: 0.25rem;
+    font-family: $font-serif;
+  }
+}
+
+main.content .glance dl {
+  display: block;
+  margin: 0;
+
+  dt,
+  dd {
+    padding: 0;
+    border-top: 0;
+  }
+
+  dt {
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $ink-3;
+  }
+
+  dd {
+    margin: 0.15rem 0 0;
+    color: $ink-2;
+  }
+
+  dd a {
+    display: inline-block;
+    padding-block: 0.1rem;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .glance {
+    margin: 0 0 2rem;
+    padding: 1rem 1.25rem;
+    border-top: 0;
+    border-left: 3px solid $ink;
+    background: $surface;
+  }
+}
+
+// "Explore this story": links to the sections of a research story, with
+// their years (_extensions/site/contents.lua).
+.story-contents {
+  margin: 0 0 2.5rem;
+  padding: 0.85rem 1.1rem 0.9rem;
+  border: 1px solid $rule;
+  border-radius: 8px;
+  font-family: $font-sans;
+
+  .story-contents__title {
+    margin: 0 0 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $ink-3;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    columns: 2 15rem;
+    column-gap: 2rem;
+  }
+
+  li {
+    break-inside: avoid;
+    padding: 0.2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  a {
+    font-weight: 600;
+  }
+
+  .period {
+    margin-left: 0.45rem;
+    vertical-align: 0.05em;
+  }
+}
+
+.story-figure {
+  margin: 2rem 0 2.5rem;
+
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.88rem;
+    color: $ink-3;
+  }
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.panels--4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@include media-breakpoint-up(sm) {
+  .panels--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panels--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .panels--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.panel {
+  padding: 0.85rem 0.85rem 0.7rem;
+  background: $figure-bg;
+  border: 1px solid $rule;
+  border-radius: 8px;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.panel-label {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  color: $figure-ink;
+}
+
+.big-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  margin: 1.5rem 0 0.4rem;
+
+  p {
+    display: contents;
+  }
+}
+
+.big-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.big-number__value {
+  font-family: $font-serif;
+  font-size: clamp(2.6rem, 2rem + 2.4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: lining-nums proportional-nums;
+  color: $ink-3;
+}
+
+.big-number--accent .big-number__value {
+  color: $accent;
+}
+
+.big-number__label {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: $ink-3;
+}
+
+.big-numbers__arrow {
+  font-size: 2rem;
+  color: $ink-3;
+}
+
+.big-numbers-note {
+  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+  color: $ink-3;
+}
+
+.story-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    height: 100%;
+    padding: 1rem 1.1rem;
+    background: $card;
+    border: 1px solid $rule;
+    border-radius: 8px;
+    color: $ink;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $accent;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .story-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.story-links__kicker {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+.story-links__title {
+  font-family: $font-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+// ---------------------------------------------------------------------------
+// News
+// ---------------------------------------------------------------------------
+.news ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+main.content .news li {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  gap: 0.2rem 1rem;
+  max-width: none;
+  padding: 0.85rem 0;
+  border-top: 1px solid $rule;
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0.2rem;
+  }
+}
+
+.news-date {
+  padding-top: 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $accent;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-text {
+  color: $ink-2;
+  font-size: 0.97rem;
+}
+
+@include media-breakpoint-down(sm) {
+  main.content .news li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Light and dark themes
+// ---------------------------------------------------------------------------
+:root {
+  color-scheme: if($is-dark, dark, light);
+}
+
+// Images with a light and a dark version (e.g. the illustration on the Home page).
+.only-light {
+  display: if($is-dark, none, block) !important;
+}
+
+.only-dark {
+  display: if($is-dark, block, none) !important;
+}
+
+// Theme switch added by Quarto to the navigation bar.
+// Years covered by a section of a research story, after its heading.
+.period {
+  display: inline-block;
+  margin-left: 0.55rem;
+  color: $ink-3;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  vertical-align: 0.2em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+// Icons before a few headings (Contact page, Home): small, in the accent
+// colour, decorative.
+h2 > .icon,
+h3 > .icon {
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+  vertical-align: -0.04em;
+  color: $accent;
+}
+
+.quarto-color-scheme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: 6px;
+  color: $ink-2;
+
+  &:hover,
+  &:focus-visible {
+    background: $accent-soft;
+    color: $accent-strong;
+  }
+
+  // The switch is drawn as an SVG background image. Its Bootstrap Icons
+  // class would make browsers download the icon font (176 KB) for nothing.
+  .bi::before {
+    font-family: inherit !important;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Lead story card: wider, with the illustration on the side
+// ---------------------------------------------------------------------------
+// Cards are not prose: no maximum line length.
+main.content .story-cards > .story-card,
+main.content .project-cards > .project-card {
+  max-width: none;
+}
+
+@include media-breakpoint-up(md) {
+  .story-card--lead {
+    grid-column: 1 / -1;
+    flex-direction: row;
+
+    .story-card__art {
+      flex: 0 0 46%;
+      height: auto;
+      min-height: 16rem;
+      border-bottom: 0;
+      border-right: 1px solid $rule;
+    }
+
+    .story-card__body {
+      justify-content: center;
+      padding: 2rem 2.25rem;
+    }
+
+    .story-card__title {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Charts: publication timeline and citation map
+// ---------------------------------------------------------------------------
+.chart {
+  margin: 1.5rem 0 2rem;
+  container-type: inline-size;
+}
+
+// "Swipe or scroll sideways": only when the chart is narrower than its
+// drawing (the min-width of the SVG in .chart-scroll), so that it scrolls.
+// Hidden from screen readers, which announce the scrollable group instead.
+.scroll-hint {
+  display: none;
+  margin: 0 0 0.35rem;
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  color: $ink-3;
+
+  &::after {
+    content: " \2194";
+  }
+}
+
+@container (max-width: 639.98px) {
+  .scroll-hint {
+    display: block;
+  }
+}
+
+.chart-scroll {
+  overflow-x: auto;
+
+  &:focus-visible {
+    outline: 3px solid $accent;
+    outline-offset: 2px;
+  }
+
+  > svg {
+    display: block;
+    width: 100%;
+    min-width: 640px;
+    height: auto;
+  }
+}
+
+.timeline {
+  font-family: $font-sans;
+
+  .tl-grid,
+  .tl-rule {
+    stroke: $rule;
+    stroke-width: 1;
+  }
+
+  .tl-year {
+    fill: $ink-3;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tl-label {
+    fill: $ink;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .tl-count {
+    fill: $ink-3;
+    font-size: 12px;
+  }
+
+  .tl-hit {
+    fill: transparent;
+  }
+
+  .tl-mark:hover .tl-dot {
+    stroke: $ink;
+  }
+}
+
+// Marks, also used in the legend: filled = article, ring = chapter,
+// small grey = conference contribution; a 2px ring in the page colour keeps
+// overlapping marks apart.
+.tl-dot {
+  stroke: $paper;
+  stroke-width: 2;
+}
+
+.tl-dot--article {
+  fill: $chart-accent;
+}
+
+.tl-dot--chapter {
+  fill: $paper;
+  stroke: $chart-accent;
+}
+
+.tl-dot--proceedings {
+  fill: $chart-muted;
+}
+
+.tl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  list-style: none;
+  font-size: 0.88rem;
+  color: $ink-2;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+
+// Publications by research line: one bar per line, divided by type with the
+// encoding of the timeline (filled = articles, outlined = chapters, grey =
+// conference contributions). HTML, so the text stays readable on phones.
+.lb-rows {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+.lb-label {
+  color: $ink;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.lb-bar {
+  display: flex;
+  align-items: center;
+}
+
+.lb-seg {
+  flex: none;
+  height: 0.85rem;
+  min-width: 3px;
+  margin-right: 2px;
+}
+
+.lb-seg--article {
+  background: $chart-accent;
+}
+
+.lb-seg--chapter {
+  background: $paper;
+  box-shadow: inset 0 0 0 1.5px $chart-accent;
+}
+
+.lb-seg--proceedings {
+  background: $chart-muted;
+}
+
+.lb-swatch {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+// A result of an article as bars ({{< result-bars >}}): the highlighted
+// method in the accent colour, the others in grey.
+.lb-seg--accent {
+  background: $chart-accent;
+}
+
+.lb-seg--muted {
+  background: $chart-muted;
+}
+
+.result-bars .lb-rows {
+  max-width: 34rem;
+
+  // Short labels (names of methods): label and bar stay on one row.
+  li {
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+}
+
+// From methods to real-world problems ({{< applications >}}, Research page).
+// Research lines on the left, fields on the right, in rows of fixed height;
+// the curves of each line are an SVG stretched over the middle column, with
+// strokes that keep their width, so they meet the labels at any width and
+// text size. Hovering or focusing a line brings its curves forward.
+.apps {
+  margin: 1.5rem 0 2rem;
+  container-type: inline-size;
+
+  figcaption {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    color: $ink-3;
+  }
+}
+
+.apps-diagram {
+  --apps-row: 2.6rem;
+  --apps-left: 30%;
+  --apps-right: 36%;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--apps-left) minmax(0, 1fr) var(--apps-right);
+  height: calc(var(--apps-rows) * var(--apps-row));
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.apps-methods,
+.apps-fields {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.apps-methods {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.apps-fields {
+  grid-column: 3;
+}
+
+.apps-method,
+.apps-field {
+  display: flex;
+  align-items: center;
+  height: var(--apps-row);
+}
+
+.apps-method {
+  justify-content: flex-end;
+  padding-right: 0.75rem;
+  text-align: right;
+
+  a {
+    display: inline-block;
+    padding-block: 0.25rem;
+    font-weight: 600;
+  }
+}
+
+.apps-field {
+  padding-left: 0.75rem;
+  color: $ink-2;
+}
+
+.apps-paths {
+  position: absolute;
+  top: 0;
+  left: var(--apps-left);
+  width: calc(100% - var(--apps-left) - var(--apps-right));
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+
+  path {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .apps-curve {
+    stroke: $chart-muted;
+    stroke-width: 1.5px;
+  }
+
+  // Dots: zero-length segments with round ends, which stay round when the
+  // drawing is stretched.
+  .apps-dot {
+    stroke: $chart-muted;
+    stroke-width: 7px;
+    stroke-linecap: round;
+  }
+
+  .apps-dot--line {
+    stroke: $ink;
+  }
+}
+
+.apps-diagram:has(.apps-method:is(:hover, :focus-within)) .apps-paths {
+  opacity: 0.3;
+}
+
+.apps-diagram .apps-method:is(:hover, :focus-within) .apps-paths {
+  z-index: 1;
+  opacity: 1;
+
+  .apps-curve {
+    stroke: $chart-accent;
+    stroke-width: 2.5px;
+  }
+
+  .apps-dot {
+    stroke: $chart-accent;
+  }
+}
+
+// Phones: up to three lines per label, long words hyphenated.
+@container (max-width: 34.99rem) {
+  .apps-diagram {
+    --apps-row: 3rem;
+    --apps-left: 36%;
+    --apps-right: 40%;
+    font-size: 0.8rem;
+    hyphens: auto;
+  }
+
+  .apps-method {
+    padding-right: 0.55rem;
+  }
+
+  .apps-field {
+    padding-left: 0.55rem;
+  }
+}
+
+.apps-table {
+  dl {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+  }
+
+  dt {
+    margin-top: 0.75rem;
+    color: $ink;
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0.2rem 0 0;
+    color: $ink-2;
+  }
+}
+
+.apps-line {
+  font-weight: 600;
+}
+
+.lb-total {
+  margin-left: 0.35rem;
+  color: $ink-3;
+  font-size: 0.85rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+@include media-breakpoint-down(sm) {
+  .lb-rows li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+}
+
+.tl-table,
+.chart-details {
+  margin-top: 0.75rem;
+
+  > summary {
+    cursor: pointer;
+    color: $accent;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.chart table {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+
+  caption {
+    caption-side: top;
+    padding: 0 0 0.5rem;
+    color: $ink-3;
+  }
+
+  th,
+  td {
+    padding: 0.35rem 0.6rem;
+    border-bottom: 1px solid $rule;
+    text-align: right;
+  }
+
+  th:first-child,
+  td:first-child {
+    text-align: left;
+  }
+
+  thead th {
+    color: $ink-2;
+    font-weight: 600;
+    border-bottom: 2px solid $rule-strong;
+  }
+}
+
+.citation-map {
+  .map-land {
+    fill: $chart-land;
+  }
+
+  .map-point {
+    fill: $chart-accent;
+    fill-opacity: 0.75;
+    stroke: $paper;
+    stroke-width: 1.5;
+  }
+
+  .map-point:hover {
+    fill-opacity: 1;
+    stroke: $ink;
+  }
+
+  .map-legend-text {
+    fill: $ink-3;
+    font-family: $font-sans;
+    font-size: 12px;
+  }
+}
+
+// About: places of the visiting positions (ochre diamonds) and of the
+// conference presentations (blue circles); the shapes keep the two kinds
+// apart without colour. Strokes keep their width when the maps are scaled.
+// Each marker has a panel with its activities (assets/js/travel-map.js).
+.travel-map {
+  .tm-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.5rem;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    list-style: none;
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    color: $ink-2;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+  }
+
+  .tm-key {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+
+  // Shown by the script, which makes the markers respond.
+  .tm-hint {
+    margin: -0.35rem 0 0.75rem;
+    font-family: $font-sans;
+    font-size: 0.85rem;
+    color: $ink-3;
+  }
+
+  .tm-figure {
+    margin: 0 0 1.25rem;
+
+    figcaption {
+      margin-top: 0.35rem;
+      font-family: $font-sans;
+      font-size: 0.85rem;
+      color: $ink-3;
+    }
+  }
+
+  .tm-stage {
+    position: relative;
+  }
+
+  .tm-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .map-land {
+    fill: $chart-land;
+  }
+
+  .tm-frame {
+    fill: none;
+    stroke: $ink-3;
+    stroke-width: 1.5;
+    stroke-dasharray: 5 4;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .tm-talk,
+  .tm-visit {
+    stroke: $paper;
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .tm-talk {
+    fill: $chart-accent;
+  }
+
+  .tm-visit {
+    fill: $chart-warm;
+  }
+
+  // The ring is transparent: it enlarges the area that responds to the
+  // pointer, and it is drawn, in the colour of the marker (currentColor),
+  // around the marker whose panel is open or that has the keyboard focus.
+  .tm-ring {
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+  }
+
+  // Two layers of markers (scripts/travel_map.py): on maps narrower than
+  // 600 px, larger markers, grouped so that they stay 24 px apart.
+  .tm-layer--narrow {
+    display: none;
+  }
+
+  @container (max-width: 599.98px) {
+    .tm-layer--wide {
+      display: none;
+    }
+
+    .tm-layer--narrow {
+      display: inline;
+    }
+  }
+
+  .tm-mark {
+    color: transparent;
+    outline: none;
+  }
+
+  .tm-mark[role="button"] {
+    cursor: pointer;
+  }
+
+  .tm-mark.is-active,
+  .tm-mark:focus-visible {
+    color: $ink;
+
+    .tm-talk,
+    .tm-visit {
+      stroke: $ink;
+    }
+  }
+
+  @media (hover: hover) {
+    .tm-mark:hover .tm-talk,
+    .tm-mark:hover .tm-visit {
+      stroke: $ink;
+    }
+  }
+
+  // Panel of a marker, placed by the script above, below or beside the
+  // marker; on narrow screens it may be wider than the map.
+  .tm-tip {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: max-content;
+    max-width: min(20rem, calc(100vw - 12px));
+    padding: 0.65rem 0.8rem 0.7rem;
+    border: 1px solid $rule-strong;
+    border-radius: 8px;
+    background: $card;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, if($is-dark, 0.5, 0.14));
+    color: $ink-2;
+    font-family: $font-sans;
+    font-size: 0.86rem;
+    line-height: 1.4;
+
+    &[hidden] {
+      display: none;
+    }
+
+    // Arrow towards the marker, on the side set by the script.
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 0 solid $rule-strong;
+      background: $card;
+      transform: rotate(45deg);
+    }
+
+    &[data-side="above"]::after {
+      top: 100%;
+      left: var(--tm-arrow);
+      margin: -5px 0 0 -5px;
+      border-width: 0 1px 1px 0;
+    }
+
+    &[data-side="below"]::after {
+      bottom: 100%;
+      left: var(--tm-arrow);
+      margin: 0 0 -5px -5px;
+      border-width: 1px 0 0 1px;
+    }
+
+    &[data-side="right"]::after {
+      right: 100%;
+      top: var(--tm-arrow);
+      margin: -5px -5px 0 0;
+      border-width: 0 0 1px 1px;
+    }
+
+    &[data-side="left"]::after {
+      left: 100%;
+      top: var(--tm-arrow);
+      margin: -5px 0 0 -5px;
+      border-width: 1px 1px 0 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-top: 0.45rem;
+    }
+  }
+
+  .tm-tip__kind {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $ink-3;
+
+    .tm-key {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .tm-tip__place + .tm-tip__place {
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid $rule;
+  }
+
+  .tm-tip__city {
+    color: $ink;
+    font-weight: 700;
+  }
+
+  .tm-tip__event {
+    color: $ink;
+    font-weight: 600;
+  }
+
+  .tm-tip__year {
+    margin-right: 0.3rem;
+    color: $accent;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tm-tip__meta {
+    color: $ink-3;
+    font-size: 0.8rem;
+  }
+
+  // Narrow maps are on small screens: more compact panels.
+  @container (max-width: 599.98px) {
+    .tm-tip {
+      padding: 0.55rem 0.7rem 0.6rem;
+      font-size: 0.82rem;
+      line-height: 1.35;
+
+      li {
+        margin-top: 0.35rem;
+      }
+    }
+
+    .tm-tip__place + .tm-tip__place {
+      margin-top: 0.45rem;
+      padding-top: 0.4rem;
+    }
+
+    .tm-tip__meta {
+      font-size: 0.76rem;
+    }
+  }
+
+  // Every activity as a list, in a closed block below the maps.
+  .tm-list {
+    margin-top: 1.25rem;
+
+    h3 {
+      margin: 1.25rem 0 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    dd ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    dd li + li {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.chart-note {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  color: $ink-3;
+}
+
+// ---------------------------------------------------------------------------
+// Professional experience: company logo
+// ---------------------------------------------------------------------------
+.org {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.org-logo {
+  display: inline-flex;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid $rule;
+  border-radius: 8px;
+  background: #FFFFFF;
+
+  img {
+    display: block;
+    width: auto;
+    height: 52px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Motion and print
+// ---------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  #quarto-header, .nav-footer, .skip-link, #quarto-margin-sidebar {
+    display: none !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

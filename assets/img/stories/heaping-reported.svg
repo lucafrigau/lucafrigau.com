@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220" role="img" aria-label="Illustration with simulated data: a histogram of reported values with spikes at multiples of 5 and 10." font-family="inherit">
+<rect x="16.6" y="185.9" width="5.2" height="0.1" fill="#8A4B0F"/>
+<rect x="23" y="186" width="5.2" height="0" fill="#B9B2A6"/>
+<rect x="29.4" y="185.9" width="5.2" height="0.1" fill="#B9B2A6"/>
+<rect x="35.8" y="185.2" width="5.2" height="0.8" fill="#B9B2A6"/>
+<rect x="42.2" y="183.5" width="5.2" height="2.5" fill="#B9B2A6"/>
+<rect x="48.6" y="166.2" width="5.2" height="19.8" fill="#8A4B0F"/>
+<rect x="55" y="176.3" width="5.2" height="9.7" fill="#B9B2A6"/>
+<rect x="61.4" y="171" width="5.2" height="15" fill="#B9B2A6"/>
+<rect x="67.8" y="171" width="5.2" height="15" fill="#B9B2A6"/>
+<rect x="74.2" y="166.7" width="5.2" height="19.3" fill="#B9B2A6"/>
+<rect x="80.6" y="47.7" width="5.2" height="138.3" fill="#8A4B0F"/>
+<rect x="87" y="158.9" width="5.2" height="27.1" fill="#B9B2A6"/>
+<rect x="93.4" y="156" width="5.2" height="30" fill="#B9B2A6"/>
+<rect x="99.8" y="141.1" width="5.2" height="44.9" fill="#B9B2A6"/>
+<rect x="106.2" y="139.4" width="5.2" height="46.6" fill="#B9B2A6"/>
+<rect x="112.6" y="40.1" width="5.2" height="145.9" fill="#8A4B0F"/>
+<rect x="119" y="139.4" width="5.2" height="46.6" fill="#B9B2A6"/>
+<rect x="125.4" y="140.8" width="5.2" height="45.2" fill="#B9B2A6"/>
+<rect x="131.8" y="155.2" width="5.2" height="30.8" fill="#B9B2A6"/>
+<rect x="138.2" y="157.1" width="5.2" height="28.9" fill="#B9B2A6"/>
+<rect x="144.6" y="26" width="5.2" height="160" fill="#8A4B0F"/>
+<rect x="151" y="161.5" width="5.2" height="24.5" fill="#B9B2A6"/>
+<rect x="157.4" y="163.8" width="5.2" height="22.2" fill="#B9B2A6"/>
+<rect x="163.8" y="158.2" width="5.2" height="27.8" fill="#B9B2A6"/>
+<rect x="170.2" y="161.4" width="5.2" height="24.6" fill="#B9B2A6"/>
+<rect x="176.6" y="117.6" width="5.2" height="68.4" fill="#8A4B0F"/>
+<rect x="183" y="167.2" width="5.2" height="18.8" fill="#B9B2A6"/>
+<rect x="189.4" y="169.7" width="5.2" height="16.3" fill="#B9B2A6"/>
+<rect x="195.8" y="176" width="5.2" height="10" fill="#B9B2A6"/>
+<rect x="202.2" y="177.4" width="5.2" height="8.6" fill="#B9B2A6"/>
+<rect x="208.6" y="141.6" width="5.2" height="44.4" fill="#8A4B0F"/>
+<rect x="215" y="179.9" width="5.2" height="6.1" fill="#B9B2A6"/>
+<rect x="221.4" y="180.9" width="5.2" height="5.1" fill="#B9B2A6"/>
+<rect x="227.8" y="180" width="5.2" height="6" fill="#B9B2A6"/>
+<rect x="234.2" y="181" width="5.2" height="5" fill="#B9B2A6"/>
+<rect x="240.6" y="172.7" width="5.2" height="13.3" fill="#8A4B0F"/>
+<rect x="247" y="182.6" width="5.2" height="3.4" fill="#B9B2A6"/>
+<rect x="253.4" y="183.2" width="5.2" height="2.8" fill="#B9B2A6"/>
+<rect x="259.8" y="184.4" width="5.2" height="1.6" fill="#B9B2A6"/>
+<rect x="266.2" y="184.7" width="5.2" height="1.3" fill="#B9B2A6"/>
+<rect x="272.6" y="180.8" width="5.2" height="5.2" fill="#8A4B0F"/><line x1="16" y1="186" x2="278.4" y2="186" stroke="#CFC8BB"/><text x="19.2" y="204" text-anchor="middle" font-size="12" fill="#625E57">0</text><text x="83.2" y="204" text-anchor="middle" font-size="12" fill="#625E57">10</text><text x="147.2" y="204" text-anchor="middle" font-size="12" fill="#625E57">20</text><text x="211.2" y="204" text-anchor="middle" font-size="12" fill="#625E57">30</text><text x="275.2" y="204" text-anchor="middle" font-size="12" fill="#625E57">40</text>
+</svg>

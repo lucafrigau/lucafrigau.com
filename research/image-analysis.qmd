@@ -1,0 +1,189 @@
+---
+pagetitle: Statistical image analysis
+description: >-
+  How a line of research on images of seeds developed: segmentation by
+  background subtraction, classification of seeds, validation of segmentation
+  with classifiers, and PARSEG. A research story by Luca Frigau.
+title-block-style: none
+---
+
+::: {.story-header}
+[← Research](../research.qmd){.back-link}
+
+::: {.overline}
+Research story · Statistical image analysis
+:::
+
+# How can we get reliable information from images?
+
+::: {.story-lead}
+Images of seeds are both data for classifying plants and a test case for image
+segmentation. This line of work has followed three connected threads:
+separating seeds from the background, classifying seeds from their images and
+validating segmentations with classifiers, up to PARSEG, which needs only a
+small sample of pixels.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+
+Period
+:   2011 to 2024
+
+Threads
+:   Segmentation by background subtraction; classification of seeds; validation of segmentation
+
+Selected collaborators
+:   Jaromír Antoch, Claudio Conversano, Francesco Mola, Gianluigi
+    Bacchetta. All authors are listed [with each publication](#publications).
+
+Data
+:   Images of botanical seeds
+
+Key paper
+:   *Scientific Reports* 2024 (open access)
+
+Code
+:   [R implementation on GitHub](https://github.com/lucafrigau/parseg)
+:::
+
+## The question
+
+Image segmentation separates the objects of interest, such as seeds, from the
+background, and many algorithms can do it. Images of seeds are also used to
+measure their size, texture and shape and to classify them. But how do we know
+that a segmentation is right, and how can we check it when an image has
+millions of pixels?
+
+## Where it started [2011–2016]{.period} {#origins}
+
+The first works of this line date from the years of my joint PhD, in
+Probability and Mathematical Statistics at Charles University in Prague and in
+Environmental and Applied Botany at the University of Cagliari, which I
+completed in 2016 with a thesis on morpho-colorimetric and non-parametric
+analysis in the statistical classification of vascular flora.
+
+In October 2011 I was a visiting fellow at the Department of Probability and
+Mathematical Statistics of Charles University, to work on classification
+methods based on Fourier analysis, a technique that
+also appears in the study of *Prunus* seeds [described
+below](#classification).
+
+## Separating the seed from the background [2015–2016]{.period} {#background}
+
+Segmentation algorithms separate the foreground from the background using
+the intensity of the pixels, so it is good practice to choose a background
+colour as different as possible from that of the objects. When many images are
+digitized, it is useful to take this choice away from the user and automate
+the process; moreover, high-resolution images slow down the algorithms based
+on local thresholding.
+
+We adapted background subtraction, a method used to detect moving objects in
+videos, to image segmentation. It combines local and global thresholding,
+gives good segmentations, automates the process when the colour of the objects is not
+constant and speeds it up considerably; on images of botanical seeds, its
+results were compared statistically with those of standard segmentation
+methods ({{< cite mola2016classification >}}). Two conference contributions had
+preceded the article ({{< cite frigau2015improving text="ISI 2015" >}};
+{{< cite mola2015background text="ODAM 2015" >}}).
+
+## Classifying seeds from their images [2018–2020]{.period} {#classification}
+
+In taxonomic studies, digital image analysis is increasingly used to compare
+and discriminate groups of seeds. A conference contribution compared
+non-parametric approaches to the classification of seeds
+({{< cite frigau2018comparison text="ISBIS 2018" >}}).
+
+The many variables measured on seeds, on size, texture and shape, are
+generally used in classification algorithms without any pre-processing, which
+brings noise and makes the process less consistent for new samples. In a
+study of 19 Sardinian cultivars of *Prunus domestica* and four cultivars of
+other *Prunus* species, the variables of each kind were pre-processed
+separately, with principal component analysis and Fourier analysis.
+
+The accuracy of each kind of data was then measured by comparing k-nearest
+neighbours, linear discriminant analysis, naive Bayes, support vector machines
+and random forests. The combination of size, texture and shape discriminated
+the seeds well, and image analysis with pre-processed data proved useful down
+to the cultivar level ({{< cite frigau2020statistical >}}).
+
+## Is the segmentation right? [2016–2021]{.period} {#validation}
+
+A statistical approach to validation uses the labels that a segmentation
+method assigns to the pixels, foreground or background, as the response of a
+classifier that predicts them from the colour of each pixel: the better the
+two agree, the better the segmentation method is ranked.
+
+Conference contributions of those years dealt with evaluating an image
+segmentation method ({{< cite frigau2016evaluating text="ISBIS 2016" >}}) and
+validating the segmentation of images of botanical seeds
+({{< cite frigau2016validating text="Statistische Woche 2016" >}};
+{{< cite antoch2017validation text="CLADAG 2017" >}}); one proposed a
+classification-based approach to validating segmentation algorithms
+({{< cite frigau2019classification text="y-BIS 2019" >}}). In December 2017 I
+visited Charles University again, to work on computationally efficient
+non-parametric methods for validating statistical image segmentation.
+
+We proposed MaLIV, a machine
+learning approach that ranks the outputs of different gray-level thresholding
+segmentation algorithms, taking into account both the computational
+complexity of the validation and the robustness of its results. It uses
+subsampling to find Fisher-consistent estimates of validity measures from a
+sample of pixels of very small size, combined with one of three alternative
+approaches: learning curves, asymptotic regression and convergence in
+probability. The article presents experiments on the validation of five
+images segmented with thirteen algorithms ({{< cite frigau2021consistent >}}).
+
+## How many pixels are enough? [2024]{.period} {#parseg}
+
+When an image has millions of pixels, validation becomes very demanding, both
+in practice and in computing time. PARSEG, which we developed, rests on an
+empirical finding: the results of validation obtained by
+training a classifier on all the pixels of an image are consistent with those
+obtained from much smaller random samples of pixels of a suitable size
+({{< cite frigau2024parseg >}}). The procedure:
+
+1. partitions the image into subsets of pixels of approximately equal size;
+2. on one subset, finds the minimum size of a random sample of pixels that
+   preserves the information needed for validation, by studying how the
+   performance of the classifier changes with the sample size;
+3. validates the remaining subsets using only samples of that size, and
+   combines the results.
+
+{{< story-figure files="assets/img/stories/parseg-1-image.svg,assets/img/stories/parseg-2-sample.svg,assets/img/stories/parseg-3-curve.svg" labels="1 · Image|2 · Partition and random sample|3 · Smallest sufficient sample" caption="Schematic illustration with simulated data. In the second panel, dashed lines partition the segmented image and circles are randomly sampled pixels; in the third, the vertical line marks the smallest sample size at which the classifier's performance stabilizes." >}}
+
+On images of seeds of about 13 million pixels, PARSEG gives roughly the same
+precision as validation on the entire image.
+
+::: {.big-numbers}
+
+:::: {.big-number .big-number--accent}
+[about 4%]{.big-number__value}
+[of the pixels are used]{.big-number__label}
+::::
+
+:::: {.big-number .big-number--accent}
+[about 90%]{.big-number__value}
+[less computing time]{.big-number__label}
+::::
+
+:::
+
+::: {.big-numbers-note}
+Values reported in the abstract of the article, for the validation of a binary
+segmented image.
+:::
+
+## Code {#code}
+
+The [R implementation of PARSEG](https://github.com/lucafrigau/parseg), with a
+reproducible example, is available on GitHub under the MIT license.
+
+## Publications in this line {#publications}
+
+{{< publications line="image-analysis" >}}
+
+## More research stories
+
+{{< story-nav >}}

@@ -1,0 +1,39 @@
+---
+title: Contact
+subtitle: Institutional contacts and academic profiles.
+description: >-
+  How to contact Luca Frigau at the Department of Economics and Business
+  Sciences, University of Cagliari, and links to his academic profiles.
+---
+
+:::: {.contact-grid}
+::: {.contact-block}
+## {{< icon email >}} Email {#email}
+
+[frigau@unica.it](mailto:frigau@unica.it)
+
+## {{< icon university >}} Office {#office}
+
+::: {.address}
+Department of Economics and Business Sciences\
+University of Cagliari\
+Via Sant'Ignazio 17, first floor, room 29\
+09123 Cagliari, Italy
+:::
+
+## {{< icon clock >}} Office hours {#office-hours}
+
+Office hours and any changes to them are announced on my
+[University of Cagliari page](https://web.unica.it/unica/page/en/luca_frigau).
+:::
+
+::: {.contact-block}
+## Academic profiles
+
+{{< profile-links style="list" exclude="Email" >}}
+:::
+::::
+
+## {{< icon location >}} Location {#location}
+
+{{< include _contact-map.md >}}

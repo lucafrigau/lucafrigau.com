@@ -1,0 +1,15 @@
+---
+title: Software & Apps
+subtitle: Code, data and interactive applications that accompany my research and teaching.
+description: >-
+  Software by Luca Frigau: R code, data repositories and interactive R Shiny
+  applications related to his research in statistical learning and applied
+  statistics, and a jamovi module for teaching market analysis.
+---
+
+I work mainly in R. This page collects public code and data related to my
+articles and my teaching. Interactive R Shiny applications are hosted on a
+separate server and will be listed here, with links, as they are released.
+Source code is on [GitHub](https://github.com/lucafrigau).
+
+{{< projects group="kind" >}}

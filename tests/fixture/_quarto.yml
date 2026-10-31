@@ -1,0 +1,14 @@
+# Small, separate Quarto project used by tests/run_tests.py: it renders the
+# site's shortcodes (through the symbolic link _extensions) on sample data.
+project:
+  type: default
+  output-dir: _output
+
+own-domains: [lucafrigau.github.io, lucafrigau.com]
+filters:
+  - quarto
+  - site
+
+format:
+  html:
+    minimal: true

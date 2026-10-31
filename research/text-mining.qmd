@@ -1,0 +1,172 @@
+---
+pagetitle: Text mining and topic modeling
+description: >-
+  How a line of research on text mining developed in parallel threads:
+  scheduling conferences with topic models, opinions and emotions in reviews,
+  quality indexes from comments, and reviews in small areas. A research story
+  by Luca Frigau.
+title-block-style: none
+---
+
+::: {.story-header}
+[← Research](../research.qmd){.back-link}
+
+::: {.overline}
+Research story · Text mining and topic modeling
+:::
+
+# What can statistics learn from what people write?
+
+::: {.story-lead}
+Reviews, comments, course evaluations and conference abstracts are written for
+people. This line of work turns them into data along several parallel
+threads, which grew from different problems: scheduling a large conference,
+reading opinions and emotions, building quality indexes and estimating what
+guests do not score.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+
+Period
+:   2019 to the present
+
+Threads
+:   Conference scheduling; opinions and emotions; indexes from comments; reviews and places; topic extraction
+
+Methods
+:   Topic models, sentiment analysis, partial least squares path modeling,
+    small area estimation
+
+Selected collaborators
+:   Marco Ortu, Giulia Contu, Andrea Carta, Maurizio Romano, Qiuyi Wu, David
+    Banks. All authors are listed
+    [with each publication](#publications).
+
+Key paper
+:   *Journal of the American Statistical Association* 2022
+:::
+
+## The question
+
+Reviews, comments and abstracts are written for people, who read them one at
+a time. Read by the thousands, they contain information that no single reader
+can see: the topics that recur, the mood in which they are discussed, the
+problems that guests or students mention but do not score. Text mining turns
+this unstructured material into data that statistical models can use.
+
+{{< story-figure files="assets/img/stories/topics-1-texts.svg,assets/img/stories/topics-2-mixtures.svg" labels="1 · Texts and their words|2 · Each text as a mix of topics" caption="Schematic illustration with invented texts: a topic model finds groups of words that tend to occur together, the topics (one colour each; grey words are not typical of any topic), and describes each text by the share of each topic." >}}
+
+## A conference program that schedules itself [2022–2024]{.period} {#jsm}
+
+At large conferences such as the Joint Statistical Meetings (JSM), sessions on
+the same topic often run at the same time, and participants have to choose.
+We used seeded latent Dirichlet allocation, an existing topic model, together
+with a scheduling optimization algorithm to
+reduce the overlap of content between parallel sessions of the 2020 program
+({{< cite frigau2022optimizing >}}).
+
+{{< story-figure files="assets/img/stories/schedule-before.svg,assets/img/stories/schedule-after.svg" labels="Topics collide in the same time slot|Each time slot offers different topics" caption="Schematic illustration with simulated data, not the actual JSM 2020 schedule: five parallel rooms (columns) and five time slots (rows); colours are topics." >}}
+
+::: {.big-numbers}
+
+:::: {.big-number}
+[0.058]{.big-number__value}
+[original JSM 2020 program]{.big-number__label}
+::::
+
+[→]{.big-numbers__arrow aria-hidden="true"}
+
+:::: {.big-number .big-number--accent}
+[0.371]{.big-number__value}
+[optimized schedule]{.big-number__label}
+::::
+
+:::
+
+::: {.big-numbers-note}
+Score based on total variation distance, from 0 (random scheduling) to 1 (no
+overlapping content). *Journal of the American Statistical Association*, 2022.
+:::
+
+According to the article, an optimized schedule could also replace the
+traditional in-person meeting in which dozens of program chairs build the JSM
+program, a significant saving for the American Statistical Association. I
+presented the approach in an invited session of the Italian Statistical
+Society ({{< cite frigau2022optimizingb text="SIS 2022" >}}) and, with work on
+the efficiency of time slots, at a conference on optimization and decision
+science ({{< cite frigau2024enhancing text="ODS 2024" >}}).
+
+## Opinions and emotions in reviews and social media [2019–2023]{.period} {#opinions}
+
+A study of Booking.com reviews of 619 accommodation facilities in Sardinia
+built a classifier, an adapted Naive Bayes model, that told positive from
+negative comments with an accuracy of 91%, the highest among the classifiers
+compared. The model was then used to identify the strengths and weaknesses
+of accommodation and of its destination and, through a random forest, to
+predict the score of a review
+({{< cite romano2019customer text="GARR conference, 2019" >}}).
+
+In marketing research, a mixed-method study based on text mining examined
+value co-destruction in social media interactions
+({{< cite frau2019value text="2019" >}}). The journal article of this thread
+studied problematic interactions between customers and firms on social media:
+it categorized customers' comments as positive, neutral or negative, located the
+peaks of negative comments, classified problematic interactions and
+correlated customers' emotions. The same pattern of emotions appeared in
+different interactions, with different intensities, and value co-creation and
+co-destruction occurred together ({{< cite frau2023how >}}).
+
+A chapter in a handbook of interactive marketing followed the negative
+emotions in these interactions: it detected the negative comments, located the
+periods with peaks of them, grouped those periods by topic and characterized
+each topic by its emotions. It concludes that, on social media, value
+co-destruction can be understood as an exchange of negative comments
+({{< cite frau2023value text="Palgrave, 2023" >}}).
+
+Semi-supervised sentiment clustering, which groups reviews by their overall
+sentiment, is told in the story on [clustering](clustering.qmd#sentiment).
+
+## From students' comments to quality indexes [2022–2024]{.period} {#tobias}
+
+A conference paper used natural language processing to explain how students
+assess their satisfaction ({{< cite ortu2022explaining text="IES 2022" >}}).
+TOBIAS, which we developed, combines sentiment analysis and topic modeling
+with partial least squares path modeling to
+estimate how the topics, sentiments, emotions and moods of comments affect an
+overall rating. Applied to the evaluations of courses by students of the
+University of Cagliari, it gave interpretable results on how the topics
+discussed, and the feelings expressed, relate to the overall rating
+({{< cite ortu2024topic >}}).
+
+## What guests do not score [2024–2025]{.period} {#small-areas}
+
+Reviews of Airbnb accommodation tend to be more positive than those on other
+platforms, so many negative experiences remain untracked. We combined
+sentiment analysis and topic modeling
+with small area estimation, through a mixed effects random forest, to measure
+negative sentiment and critical topics in small areas of Rome, defined by
+geography and by the presence of hosts and Superhosts
+({{< cite frigau2024gauging >}}).
+
+Two conference papers followed the same data source in other directions: Airbnb
+reviews used to explore spatial disparities in transportation and mobility in
+Sardinia ({{< cite frigau2025exploring text="IES 2025" >}}), and
+sustainability-oriented self-descriptions mapped to Airbnb reviews
+({{< cite ortu2025self text="IES 2025" >}}).
+
+## Extracting topics [2023–2026]{.period} {#topics}
+
+Two contributions work on topic extraction itself: multivariate regression
+trees for topic modeling ({{< cite ortu2023multivariate text="CLADAG 2023" >}})
+and precision-oriented semantic filtering for extracting latent topics from
+multilingual texts ({{< cite ortu2026precision text="IFCS 2026" >}}).
+
+## Publications in this line {#publications}
+
+{{< publications line="text-mining" >}}
+
+## More research stories
+
+{{< story-nav >}}

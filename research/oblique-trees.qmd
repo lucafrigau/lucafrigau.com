@@ -1,0 +1,178 @@
+---
+pagetitle: Decision trees and classification
+description: >-
+  How a line of research on classification and decision trees developed: the
+  reliability of classifiers, classifiers on real problems, and oblique
+  regression trees such as TORS. A research story by Luca Frigau.
+title-block-style: none
+---
+
+::: {.story-header}
+[← Research](../research.qmd){.back-link}
+
+::: {.overline}
+Research story · Decision trees and classification
+:::
+
+# How can a prediction rule be both reliable and easy to read?
+
+::: {.story-lead}
+Classifiers and decision trees learn rules from data to predict an outcome.
+Over the years, this line of work has asked how much those rules can be
+trusted, has used classifiers on real problems, from ports to health care
+fraud, and has developed oblique regression trees that try to be both
+accurate and easy to read.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+
+Period
+:   2013 to the present
+
+Threads
+:   Reliability of classifiers; classifiers in practice; oblique trees; multivariate regression trees
+
+Selected collaborators
+:   Claudio Conversano, Francesco Mola, Andrea Carta, Giulia Contu, Marco
+    Ortu. All authors are listed [with each publication](#publications).
+
+Key paper
+:   *Computational Statistics* 2025 (open access)
+
+Latest
+:   An interpretable ensemble of oblique trees (IFCS 2026)
+:::
+
+## The question
+
+Classification and regression trees split the data with simple rules, such as
+"income above a threshold", and predict with the average or the most frequent
+class of each group. Two questions run through this line of work. How much can
+we trust the rule that a classifier has learned from the data at hand? And can
+a tree stay easy to read while following the structure of the data?
+
+## A tree for an applied prediction problem [2013–2014]{.period} {#ports}
+
+At a transhipment container terminal, planning each work shift depends on
+when ships actually arrive, and the arrival times notified by ship operators
+are often revised. After an exploratory analysis of the delays recorded at a
+Mediterranean terminal, the article proposed using a classification and
+regression tree (CART), an established method, to reduce the uncertainty about
+arrivals ({{< cite pani2014data >}}).
+A conference paper had compared machine learning methods to predict delays in
+container terminals ({{< cite cannas2013delay text="WCTR 2013" >}}).
+
+## How reliable is a classifier? [2014–2019]{.period} {#reliability}
+
+A classifier may perform well on the data at hand and still learn an unstable
+rule, especially when classes are imbalanced or observations are few. We
+proposed to assess the reliability of a multi-class classifier by retraining
+it on resampled versions of the data
+({{< cite frigau2014assessing text="ECDA 2014" >}};
+{{< cite frigau2016assessing text="Springer, 2016" >}}). User-defined
+misclassification costs, applied to the resulting confusion matrices and
+modeled with a Beta regression, give a cost-sensitive classification index; a
+second index measures how much the distribution of the predicted classes
+differs from the observed one. Both lie between 0 and 1, so each classifier
+becomes a point in a square, and its position on the original and resampled
+data shows how reliable it is.
+
+Other conference contributions of those years dealt with a bivariate
+cost-sensitive classifier performance index
+({{< cite frigau2014bivariate text="COMPSTAT 2014" >}}), the reliability of a
+classifier ({{< cite frigau2015note text="CLADAG 2015" >}}), combined methods
+for multi-label classification
+({{< cite frigau2017combined text="CLADAG 2017" >}}), the sequential automatic
+search of a subset of classifiers, SASSC, also applied to insurance data
+({{< cite frigau2017advances text="IFCS 2017" >}};
+{{< cite frigau2017sassc text="MIPIS 2017" >}}), and regularization in
+tree-based classification models
+({{< cite frigau2019regularization text="ISBIS 2019" >}}).
+
+## Classifiers in practice [2021–2023]{.period} {#practice}
+
+Health care fraud detection applies classifiers to large claims data in which
+fraud is rare and its distribution skewed. We compared several classification
+algorithms and data
+pre-processing methods on publicly available claims payment data of U.S.
+Medicare Part B, under several fraud scenarios, and discussed their accuracy
+and computational demand, to help practitioners choose and apply a method
+({{< cite ekin2021health >}}). The data are on [GitHub](../software.qmd).
+
+Supervised learning is useful beyond classification. Near-infrared spectra of
+paper books dated between 1851 and 2000, combined with three supervised
+machine learning methods, predicted the year of publication: two of the
+methods reached an accuracy of up to two years, and the most informative
+wavelengths could be linked to the structure of cellulose and of proteins
+({{< cite coppola2023near >}}; see also
+{{< cite coppola2023machine text="TECHNART 2023" >}}). A conference
+contribution used machine learning models to discriminate tourist landscapes
+from eye-tracking data ({{< cite zammarchi2021application text="ENBIS 2021" >}}).
+
+## Oblique trees [2025–2026]{.period} {#oblique}
+
+Each rule of a standard tree involves a single variable. When the response
+changes along a combination of variables, a tree needs a staircase of splits
+to follow it: it becomes deeper, less stable and harder to read. Oblique trees
+split on a linear combination of predictors instead: at each node, a
+hyperplane rather than a line parallel to one of the axes.
+
+{{< story-figure files="assets/img/stories/oblique-axis.svg,assets/img/stories/oblique-oblique.svg" labels="Splits parallel to the axes|Oblique splits" caption="Schematic illustration with simulated data. The colour of the points is the response, which increases along the diagonal; shaded areas are the regions defined by the splits." >}}
+
+The difficulty is to find good hyperplanes quickly. TORS, which we developed,
+does it in three steps at each node ({{< cite carta2025tree >}}):
+
+1. it selects the predictors most correlated with the response;
+2. it splits the continuous response into two classes;
+3. it uses a weighted support vector machine with a linear kernel to find the
+   hyperplane that minimizes the deviance.
+
+We compared TORS with four other oblique trees and a standard regression tree
+(CART), using five-fold cross-validation. On 3,840 simulated data sets, TORS
+obtained the lowest root mean squared error more often than the other five
+models. On 109 real benchmark data sets, it had the lowest error on 52, more
+than any other model, and was first or second on about three quarters; its
+relative performance was best on the smallest data sets. Because each split
+shows which variables it uses, TORS is easier to interpret than oblique trees
+that do not select variables. With only the two predictors most correlated with the
+response, the setting that gave the best predictions in the simulations, each
+split can be drawn in a plane.
+
+{{< result-bars labels="TORS|ODT|CART|HHCART|BUTIA|CO2" values="52|32|15|6|4|0" highlight="TORS" caption="Benchmark data sets, out of 109, on which each model had the lowest root mean squared error in five-fold cross-validation, as marked in Table 3 of the article. CO2 could not be computed on 9 data sets." >}}
+
+WOLTReg, a related method that we proposed, finds the oblique splits with a
+weighted logistic regression instead of a support vector machine, again with a
+selection of predictors at each node. On benchmark data sets it worked better
+when only a few predictors defined each split, and in the comparison reported
+in the chapter it had a lower root mean squared error than other oblique trees
+and a standard tree ({{< cite carta2025weighted text="Springer, 2025" >}};
+{{< cite carta2025weightedb text="CLADAG 2025" >}}).
+
+Further contributions concern feature-selective oblique trees for regression,
+applied to the wages of STEM graduates in Italy
+({{< cite carta2025feature text="ICSTA 2025" >}}), a new approach to oblique
+decision trees for regression ({{< cite carta2026novel text="ISI 2025" >}}),
+and an interpretable ensemble of oblique trees based on weighted support
+vector machines ({{< cite carta2026interpretable text="IFCS 2026" >}}).
+
+## Multivariate regression trees for territorial data [2023–2026]{.period} {#mrt}
+
+Multivariate regression trees predict several responses at once and group
+similar units along the way. They were used to study Italian mortality rates
+({{< cite contu2023multivariate text="CLADAG 2023" >}}) and the determinants of
+tourist arrivals in the 307 municipalities of Sardinia, with arrivals by
+nationality as responses and geography, demographic structure and transport
+accessibility as predictors. The density of accommodation facilities emerged
+as the main determinant, together with a persistent difference between the
+coast and the inland ({{< cite contu2026territorial text="Springer, 2026" >}};
+see also {{< cite contu2026multivariate text="IFCS 2026" >}}).
+
+## Publications in this line {#publications}
+
+{{< publications line="trees" >}}
+
+## More research stories
+
+{{< story-nav >}}

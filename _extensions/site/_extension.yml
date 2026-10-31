@@ -1,0 +1,10 @@
+title: Site components
+author: Luca Frigau
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  shortcodes:
+    - site.lua
+  filters:
+    - links.lua
+    - contents.lua

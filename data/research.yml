@@ -1,0 +1,109 @@
+# Research stories and research areas.
+#
+# Areas with a `story` page are shown as illustrated cards (Home and Research)
+# that link to that page; the first one is shown larger. Areas without a
+# story are shown in the "Other lines of work" section of the Research page.
+# The order in this file is the order on the site.
+#
+# The `id` of an area is also used in data/publications.bib: each entry has
+# exactly one keyword that matches an id, which assigns it to that area in
+# the publication charts. The last area, Other topics, is for the works that
+# do not belong to any of the research lines.
+#
+# Fields:
+#   id            identifier (lowercase letters, digits, hyphens)
+#   title         name of the area, shown above the question on the cards
+#   label         short name used in the publication timeline
+#   question      headline of the story card (areas with a story)
+#   short         one or two sentences under the question (Markdown allowed)
+#   story         page of the story, from the project folder (e.g. research/x.qmd)
+#   image         SVG illustration for the card (assets/img/stories/...)
+#   description   paragraphs for areas without a story (Markdown allowed)
+#   keywords      short list of topics shown as tags (areas without a story)
+#   publications  BibTeX keys of representative works (data/publications.bib)
+
+research:
+  areas:
+    - id: clustering
+      title: Clustering
+      label: Clustering
+      question: How do we find groups in data that we can trust?
+      short: >
+        Methods to find groups of similar observations, also with the help of
+        an outcome variable, and to validate partitions and choose between
+        clustering methods.
+      story: research/clustering.qmd
+      image: assets/img/stories/nessc-4-clusters.svg
+      publications: [frigau2021network, conversano2024overlapping, frigau2023semi, contu2018comparison, frigau2023method, frigau2026selecting, frigau2025local]
+
+    - id: trees
+      title: Decision trees and classification
+      label: Trees and classification
+      question: How can a prediction rule be both reliable and easy to read?
+      short: >
+        From the reliability of classifiers and their use on real problems to
+        oblique regression trees, which split the data with hyperplanes and
+        remain easy to read.
+      story: research/oblique-trees.qmd
+      image: assets/img/stories/oblique-oblique.svg
+      publications: [carta2025tree, carta2025weighted, carta2025feature, carta2026interpretable]
+
+    - id: text-mining
+      title: Text mining and topic modeling
+      label: Text mining
+      question: What can statistics learn from what people write?
+      short: >
+        Topic models and sentiment analysis turn reviews, course evaluations
+        and conference programs into data, and can help to schedule a better
+        conference.
+      story: research/text-mining.qmd
+      image: assets/img/stories/schedule-after.svg
+      publications: [frigau2022optimizing, ortu2024topic, frigau2024gauging, frigau2023semi, ortu2023multivariate, ortu2026precision]
+
+    - id: heaping
+      title: Counts and rounded answers
+      label: Count models
+      question: What do rounded answers hide?
+      short: >
+        Self-reported counts pile up on round numbers. We modeled these
+        spikes, instead of ignoring them, to study the age at which people
+        start smoking.
+      story: research/heaping.qmd
+      image: assets/img/stories/heaping-reported.svg
+      publications: [yee2025heaping, yee2024heaping]
+
+    - id: image-analysis
+      title: Statistical image analysis
+      label: Image analysis
+      question: How can we get reliable information from images?
+      short: >
+        Images of seeds, from segmentation and classification to validation:
+        PARSEG validates a segmentation with a small sample of its pixels, with
+        roughly the same precision.
+      story: research/image-analysis.qmd
+      image: assets/img/stories/parseg-2-sample.svg
+      publications: [frigau2024parseg, frigau2021consistent, frigau2020statistical, mola2016classification]
+
+    - id: other-topics
+      title: Other topics
+      label: Other topics
+      description: |
+        Collaborative work outside the five lines above. Most of it falls into
+        a few groups:
+
+        - **Clinical and health research**, above all the Italian adaptation
+          and validation of questionnaires used in rehabilitation medicine,
+          with studies in orthopaedics, dentistry and neuroimaging.
+        - **Tourism and the sharing economy**, including regression models
+          (ordinal, logit and probit) of the prices and performance of Airbnb
+          accommodation and of the Superhost status of hosts, and the online
+          communication of heritage sites.
+        - **Eye tracking and Markov chains**, to study web usability and how
+          tourists look at landscapes and move across Sardinia.
+        - **Plant biology**: seed germination and alien plants in wetlands.
+
+        Single studies concern risk analysis, experimental economics,
+        scientometrics, student mobility and graduate wages. Applied work that
+        uses the methods of the five lines is listed with them.
+      keywords: [clinical research, tourism, ordinal regression, eye tracking, plant biology]
+      publications: [mahmoudvand2025probability, contu2023price, zammarchi2021markov, monticone2020italian]

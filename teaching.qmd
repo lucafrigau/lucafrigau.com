@@ -1,0 +1,60 @@
+---
+title: Teaching
+subtitle: Courses in statistics and data analysis at the University of Cagliari, from bachelor's to doctoral level.
+description: >-
+  Courses taught by Luca Frigau at the University of Cagliari, teaching
+  experience, and thesis supervision, with links to the official course
+  information.
+toc: true
+---
+
+
+## Courses in 2026/27 {#current}
+
+::: {.courses}
+Statistics ([Statistica]{lang="it"})
+:   Bachelor's degree in [Economia aziendale & management]{lang="it"}
+
+Market Analysis ([Analisi di mercato]{lang="it"})
+:   Master's degree in Managerial Economics
+    ([Economia manageriale]{lang="it"}). For this course I developed
+    [AnalisiMercato](software.qmd#sw-analisimercato), a jamovi module.
+:::
+
+Course pages, office hours and notices:
+[University of Cagliari course catalogue](https://unica.coursecatalogue.cineca.it/docente/46925/2026)
+and my [university page](https://web.unica.it/unica/page/en/luca_frigau).
+
+## Teaching experience {#experience}
+
+### Bachelor's and master's degrees
+
+- **Statistics**: bachelor's degrees in Economics and Finance (2016–2017 and
+  since 2022) and in Economics and Business Management (2018, 2022–2023).
+- **Market Analysis**: master's degree in Managerial Economics (since 2015).
+- **Statistical Methods for Data Journalism**: master's degree in Journalism
+  and Web Information (2025–2026).
+- **Statistical Learning** (2023) and **Big Data Lab** (2019): master's degree
+  in Data Science, Business Analytics and Innovation.
+- **Basis of Scientific Methodology**: master's degree in Cellular and
+  Molecular Biology (2022–2023).
+- **Biostatistics**: master's degree in Marine Bioecology (2018–2020).
+
+### Second-level master's programs
+
+- **Statistics and Data Analysis**: Master in Digitization of the Electricity
+  System for Energy Transition (2022–2026).
+- **Statistics**: Master in European Planning (2020, 2022).
+
+### Doctoral courses
+
+- **Supervised and semi-supervised decision tree algorithms** (2022).
+- **Statistics** (2024), **Quantitative Methods** (2016–2020) and
+  **Statistical Models for Business Analytics** (2019).
+
+## Supervision {#supervision}
+
+I supervise bachelor's and master's theses in statistics, data science and
+quantitative marketing, and doctoral research in Economics and Business
+Sciences. Recent doctoral supervision: Andrea Carta, *Essays on Nonparametric
+Prediction Models* (PhD in Economics and Business Sciences, 37th cycle).

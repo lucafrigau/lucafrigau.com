@@ -1,0 +1,95 @@
+---
+pagetitle: Heaped counts and GAITD regression
+description: >-
+  Self-reported counts pile up on round numbers. In a 2025 study of smoking,
+  we modeled these spikes with GAITD regression and proposed doubly
+  constrained reduced-rank VGLMs. A research story by Luca Frigau.
+title-block-style: none
+---
+
+::: {.story-header}
+[← Research](../research.qmd){.back-link}
+
+::: {.overline}
+Research story · Counts and rounded answers
+:::
+
+# What do rounded answers hide?
+
+::: {.story-lead}
+Self-reported counts pile up on round numbers, and these spikes distort the
+estimates. In our 2025 article, we modeled the spikes instead of ignoring
+them and proposed a new class of regression models, to study the age at
+which people start smoking.
+:::
+:::
+
+::: {.column-margin .glance}
+**At a glance**
+
+Period
+:   2020 to 2025
+
+Methods
+:   GAITD regression (Yee and Ma, 2024); doubly constrained reduced-rank
+    VGLMs, proposed in our article
+
+Co-authors
+:   Thomas W. Yee (University of Auckland), Chenchen Ma
+
+Data
+:   US National Health and Nutrition Examination Survey (NHANES)
+
+Key paper
+:   *The Annals of Applied Statistics* 2025
+:::
+
+## The question
+
+Ask people at what age they started smoking, or how much they smoke, and many
+will answer with a round number. Large health surveys used in addiction
+studies are full of this *digit preference*, known as **heaping**: spikes at
+multiples of 5 and 10 that reflect how people remember and report rather than
+what they did. Its opposite, *seeping*, makes some values rarer than they
+should be. Both distort the estimates, and methods and software to deal with
+them have long been lacking.
+
+{{< story-figure files="assets/img/stories/heaping-reported.svg,assets/img/stories/heaping-model.svg" labels="What people report|Underlying distribution and excess on round numbers" caption="Schematic illustration with simulated data. Bars at multiples of 5 are in ochre." >}}
+
+## A visit to Auckland [2020]{.period} {#auckland}
+
+In February and March 2020 I was a visiting fellow at the Department of
+Statistics of the University of Auckland, to collaborate on methods for count
+distributions that are generally altered, inflated and truncated.
+
+## GAITD regression for heaped counts [2024–2025]{.period} {#gaitd}
+
+Generally Altered, Inflated, Truncated and Deflated (GAITD) regression was
+introduced in an earlier article
+([*Statistical Science*, 2024](https://doi.org/10.1214/24-sts925)). It allows
+selected values of a count, such as multiples of 5 and 10, to be inflated or
+deflated with respect to an underlying distribution, and models them within
+the regression.
+
+In our article, we identified three generic problems of simple addiction
+studies affected by heaping and seeping, and
+solved them with GAITD regression ({{< cite yee2025heaping >}}; presented
+earlier at {{< cite yee2024heaping text="NZSA 2024" >}}). In conjunction, we
+proposed doubly constrained reduced-rank vector generalized linear models
+(DRR-VGLMs), which give structure to reduced-rank regression through linear
+constraints and further simplify the dimension reduction.
+
+Applied to a recent data set of the US National Health and Nutrition
+Examination Survey, the models describe the distribution of the age at which
+people start smoking and its association with tobacco consumption and smoking
+duration. They address questions such as: is starting to smoke earlier
+associated with higher consumption later in life? Among those who quit, is
+starting later associated with smoking for a shorter time?
+
+## Publications in this line {#publications}
+
+{{< publications line="heaping" >}}
+
+## More research stories
+
+{{< story-nav >}}

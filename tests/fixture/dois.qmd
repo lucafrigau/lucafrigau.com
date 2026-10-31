@@ -1,0 +1,14 @@
+---
+title: DOI links
+publications:
+  file: data/dois.bib
+  highlight: Frigau
+---
+
+::: {#full}
+{{< publications type="article" >}}
+:::
+
+::: {#compact}
+{{< publications type="article" style="compact" >}}
+:::

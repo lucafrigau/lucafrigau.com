@@ -1,0 +1,58 @@
+---
+title: Component tests
+publications:
+  file: data/sample.bib
+  highlight: Frigau
+research:
+  areas:
+    - id: clustering
+      label: Clustering
+      story: story.qmd
+      publications: [delta2020, alpha2025]
+    - id: applications
+      label: Applications
+applications:
+  fields:
+    - id: tourism
+      label: Tourism
+      publications: [alpha2025, delta2020]
+    - id: health
+      label: Health
+      publications: [alpha2025, beta2024]
+---
+
+::: {#articles}
+{{< publications type="article" >}}
+:::
+
+::: {#selected}
+{{< publications selected="true" >}}
+:::
+
+::: {#area}
+{{< publications area="clustering" style="compact" >}}
+:::
+
+::: {#chapters}
+{{< publications type="chapter" >}}
+:::
+
+::: {#count}
+{{< pubcount type="article" >}}
+:::
+
+::: {#timeline}
+{{< pub-timeline >}}
+:::
+
+::: {#lines}
+{{< pub-lines >}}
+:::
+
+::: {#applications}
+{{< applications >}}
+:::
+
+::: {#bars}
+{{< result-bars labels="Ours|Other|Third" values="10|4|0" highlight="Ours" caption="Counted from <Table 1> & co." >}}
+:::
