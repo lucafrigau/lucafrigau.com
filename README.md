@@ -624,8 +624,10 @@ e non va inviata a GitHub (non usare `git push --all`).
   dominio stesso. Gli indirizzi sono quelli della guida di GitHub "Managing
   a custom domain for your GitHub Pages site". I record della posta (MX e il
   TXT `v=spf1 …`) non riguardano il sito e restano come sono.
-- **Verifica dei domini** (consigliata): nelle impostazioni dell'account
-  GitHub, *Settings → Pages → Add a domain*, con un record TXT nella zona DNS.
+- **Verifica dei domini**: fatta il 1° novembre 2026 nelle impostazioni
+  dell'account GitHub (*Settings → Pages*, non quelle dei repository). Ogni
+  zona ha un record TXT `_github-pages-challenge-lucafrigau` con il codice
+  dato da GitHub: va lasciato, altrimenti il dominio non è più verificato.
   Così nessun altro account GitHub può usare i domini.
 
 Se cambia l'indirizzo del sito: aggiornare `site-url`, `person.url` e
