@@ -6,7 +6,9 @@ con [Quarto](https://quarto.org), pensato per essere pubblicato gratuitamente su
 GitHub Pages e aggiornato modificando pochi file di testo.
 
 - Lingua del sito: inglese. Lingua di questa guida: italiano.
-- Nessun database, nessun servizio a pagamento, nessun cookie o tracciamento.
+- Nessun database, nessun servizio a pagamento, nessun cookie. Le visite sono
+  contate senza cookie e senza salvare indirizzi IP (vedi
+  [Statistiche delle visite](#statistiche-delle-visite)).
 - La compilazione richiede soltanto Quarto: non servono R né Python. Python
   serve solo per i test, le verifiche e per ridisegnare le mappe (citazioni,
   attività internazionali, Contact).
@@ -20,8 +22,9 @@ GitHub Pages e aggiornato modificando pochi file di testo.
 5. [Test e verifiche](#test-e-verifiche)
 6. [Pubblicazione su GitHub Pages](#pubblicazione-su-github-pages)
 7. [Dominio personale](#dominio-personale)
-8. [Manutenzione periodica](#manutenzione-periodica)
-9. [Componenti delle pagine (shortcode)](#componenti-delle-pagine-shortcode)
+8. [Statistiche delle visite](#statistiche-delle-visite)
+9. [Manutenzione periodica](#manutenzione-periodica)
+10. [Componenti delle pagine (shortcode)](#componenti-delle-pagine-shortcode)
 
 ## Installazione
 
@@ -113,6 +116,7 @@ assets/
   img/stories/            illustrazioni dei filoni (SVG generati da scripts/make_figures.py)
   html/                   piccoli frammenti HTML inclusi in ogni pagina
   js/travel-map.js        pannelli dei marcatori della mappa delle attività internazionali (About)
+  js/goatcounter.v5.js    conteggio delle visite (copia esatta dello script di GoatCounter)
 _extensions/site/         componenti Lua che generano elenchi, schede e grafici dai file dati;
                           links.lua apre in una nuova scheda i link verso altri siti;
                           contents.lua scrive "Explore this story" nelle Research Stories
@@ -629,10 +633,50 @@ e non va inviata a GitHub (non usare `git push --all`).
   zona ha un record TXT `_github-pages-challenge-lucafrigau` con il codice
   dato da GitHub: va lasciato, altrimenti il dominio non è più verificato.
   Così nessun altro account GitHub può usare i domini.
+- **Google Search Console**: la zona di `lucafrigau.com` ha anche un TXT
+  `google-site-verification=…` (vedi
+  [Statistiche delle visite](#statistiche-delle-visite)): va lasciato.
 
 Se cambia l'indirizzo del sito: aggiornare `site-url`, `person.url` e
 `own-domains` in `_quarto.yml`, la riga `Sitemap:` in `robots.txt`, il dominio
 in *Settings → Pages* e la pagina del repository `lucafrigau.it`.
+
+## Statistiche delle visite
+
+Le visite sono contate con [GoatCounter](https://www.goatcounter.com/), un
+servizio open source gratuito per i siti personali. Non usa cookie e non salva
+gli indirizzi IP: tiene solo dei totali (pagine viste per ora, siti di
+provenienza, browser, sistema operativo, lingua, larghezza dello schermo,
+paese), su server in Finlandia e Germania. Il footer lo dice ai visitatori, con
+il link alla privacy policy di GoatCounter.
+
+- **Account**: `lucafrigau.goatcounter.com`; i dati si vedono dopo l'accesso.
+  La registrazione delle singole visite (*Individual pageviews*) è spenta
+  all'inizio: accenderla salva una riga per ogni pagina vista, sempre senza
+  indirizzo IP (serve per l'esportazione CSV).
+- **Script**: `assets/html/goatcounter.html` lo aggiunge a ogni pagina
+  (`include-in-header` in `_quarto.yml`). `assets/js/goatcounter.v5.js` è la
+  copia esatta di `https://gc.zgo.at/count.v5.js` (licenza ISC), servita dal
+  sito stesso perché i visitatori non scarichino script da altri siti. Un test
+  controlla che coincida con l'impronta SRI pubblicata da GoatCounter (pagina
+  *Use SRI with count.js?* della sua documentazione).
+- **Anteprima e test** non vengono contati: GoatCounter ignora le pagine
+  servite da `localhost` o da indirizzi della rete locale.
+- **Le proprie visite**: per non contarle, aprire una volta in ogni browser
+  `https://lucafrigau.com/#toggle-goatcounter`; aprirlo di nuovo riattiva il
+  conteggio.
+- **Per toglierlo**: togliere da `_quarto.yml` la riga
+  `assets/html/goatcounter.html`, cancellare lo script, rimettere nel footer
+  «No analytics or tracking cookies» e togliere i test «visit statistics».
+
+Le ricerche su Google che portano al sito si vedono in
+[Google Search Console](https://search.google.com/search-console), con
+l'account Google di Luca: proprietà di tipo *Dominio* `lucafrigau.com`. La
+verifica usa il record TXT `google-site-verification=…` nella zona DNS di
+`lucafrigau.com` (sottodominio `@`): va lasciato, altrimenti la proprietà non è
+più verificata. La sitemap da indicare a Google è
+`https://lucafrigau.com/sitemap.xml`. Search Console non aggiunge niente al
+sito.
 
 ## Manutenzione periodica
 

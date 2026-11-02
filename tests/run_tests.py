@@ -15,12 +15,14 @@ Usage:
    pages and by data/research.yml; the files of the research stories and
    the journal articles cited in them; the map of visiting positions and
    conference presentations (data, panels of the markers, list, spacing of
-   the markers, script); news and software entries.
+   the markers, script); news and software entries; the visit statistics
+   (GoatCounter's script and the note in the footer).
 
 Needs Quarto and PyYAML (pip install pyyaml). Exits with status 1 if a check
 fails.
 """
 import argparse
+import base64
 import glob
 import hashlib
 import html.parser
@@ -665,6 +667,7 @@ def data_checks():
           and not re.search(r"<(iframe|script|img|link)\b|\bsrc=", contact))
 
     travel_tests()
+    analytics_tests()
 
     news = load_yaml("data/news.yml").get("news") or []
     dates = [str(n.get("date", "")) for n in news]
@@ -783,6 +786,26 @@ def travel_tests():
           len(js.encode()) < 10000 and not re.search(
               r"fetch|XMLHttpRequest|sendBeacon|WebSocket|cookie|Storage|indexedDB|https?://", js))
     check("travel map: included in the About page", "{{< include _travel-map.md >}}" in read("about.qmd"))
+
+
+def analytics_tests():
+    """Visit statistics with GoatCounter (README.md, "Statistiche delle visite")."""
+    # SRI hash of https://gc.zgo.at/count.v5.js, published by GoatCounter at
+    # https://www.goatcounter.com/help/countjs-versions
+    sri = "sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"
+    with open(os.path.join(ROOT, "assets/js/goatcounter.v5.js"), "rb") as f:
+        got = "sha384-" + base64.b64encode(hashlib.sha384(f.read()).digest()).decode()
+    expect("visit statistics: assets/js/goatcounter.v5.js is GoatCounter's count.v5.js, unchanged", got, sri)
+    tag = read("assets/html/goatcounter.html").strip()
+    check("visit statistics: one script, served by the site itself, sending to a goatcounter.com address",
+          re.fullmatch(r'<script data-goatcounter="https://[a-z0-9-]+\.goatcounter\.com/count" async '
+                       r'src="/assets/js/goatcounter\.v5\.js"></script>', tag) is not None, tag)
+    config = load_yaml("_quarto.yml")
+    check("visit statistics: the script is in the head of every page",
+          "assets/html/goatcounter.html" in (config["format"]["html"].get("include-in-header") or []))
+    footer = (config["website"].get("page-footer") or {}).get("right", "")
+    check("footer: says that visits are counted with GoatCounter (link to its privacy policy), not 'No analytics'",
+          'href="https://www.goatcounter.com/privacy"' in footer and "analytics" not in footer.lower(), footer)
 
 
 def main():

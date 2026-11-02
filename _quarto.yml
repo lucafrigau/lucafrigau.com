@@ -69,7 +69,9 @@ website:
       © Luca Frigau · Department of Economics and Business Sciences,
       University of Cagliari
     right: >-
-      No analytics or tracking cookies · Built with
+      No cookies · Visits counted with
+      <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener noreferrer">GoatCounter<span class="visually-hidden">
+      (opens in a new tab)</span></a>, which stores no IP addresses · Built with
       <a href="https://quarto.org" target="_blank" rel="noopener noreferrer">Quarto<span class="visually-hidden">
       (opens in a new tab)</span></a>
 
@@ -140,7 +142,11 @@ format:
       light: assets/scss/theme.scss
       dark: [assets/scss/theme.scss, assets/scss/dark.scss]
     respect-user-color-scheme: true
-    include-in-header: assets/html/head.html
+    include-in-header:
+      - assets/html/head.html
+      # Visit statistics with GoatCounter, without cookies (README.md,
+      # "Statistiche delle visite").
+      - assets/html/goatcounter.html
     include-before-body: assets/html/skip-link.html
     include-after-body: assets/html/after-body.html
     toc: false
